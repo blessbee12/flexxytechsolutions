@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Flexxy Tech Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#1d4ed8',
+            'secondary': '#1e40af',
+            'accent': '#7c3aed',
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-in-out',
+            'slide-up': 'slideUp 0.8s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .glow-hover:hover {
+      box-shadow: 0 0 15px rgba(29, 78, 216, 0.5);
+    }
+    
+    .circle-pattern {
+      background-image: radial-gradient(rgba(29, 78, 216, 0.1) 2px, transparent 2px);
+      background-size: 32px 32px;
+    }
+    
+    .wave-shape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    
+    .wave-shape svg {
+      position: relative;
+      display: block;
+      width: calc(150% + 1.3px);
+      height: 80px;
+    }
+    
+    .wave-shape .shape-fill {
+      fill: #FFFFFF;
+    }
+    
+    @media (max-width: 768px) {
+      .wave-shape svg {
+        width: calc(200% + 1.3px);
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <a href="home.html" class="flex items-center space-x-2">
+          <span class="font-bold text-xl text-primary">Flexxy<span class="text-accent">.</span></span>
+        </a>
+        <div class="hidden md:flex space-x-8">
+          <a href="home.html" class="text-gray-700 hover:text-primary transition">Home</a>
+          <a href="about.html" class="text-primary font-medium">About</a>
+          <a href="services.html" class="text-gray-700 hover:text-primary transition">Services</a>
+          <a href="portfolio.html" class="text-gray-700 hover:text-primary transition">Portfolio</a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary transition">Contact</a>
+        </div>
+        <button class="md:hidden focus:outline-none">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
+    <div class="circle-pattern absolute inset-0 opacity-20"></div>
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">About Flexxy Tech Solutions</h1>
+      <p class="text-xl md:text-2xl opacity-90 mb-8 animate-fade-in animation-delay-200">Driven by design. Focused on the future.</p>
+      <a href="#main-content" class="inline-flex items-center px-6 py-3 bg-white text-primary rounded-full font-medium hover:bg-gray-100 transition animate-fade-in animation-delay-400">
+        Learn More
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="wave-shape">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="max-w-6xl mx-auto px-6 py-16 animate-slide-up">
+    <div class="mb-20">
+      <span class="text-sm font-semibold text-accent tracking-wider">OUR STORY</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Who We Are</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-lg leading-relaxed mb-4">
+            Flexxy Tech Solutions is a cutting-edge front-end development company committed to crafting clean, responsive, and modern digital experiences. Founded by <strong class="text-primary">Blessing Keabetswe Rankunyana</strong>, we began as a small team with one simple belief — every business, no matter how small, deserves an exceptional online presence that reflects their vision.
+          </p>
+          <p class="text-lg leading-relaxed">
+            From our humble beginnings to now serving clients across multiple continents, we've stayed true to our core values while continuously evolving with the ever-changing digital landscape.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-xl border border-gray-100 glow-hover transition-transform hover:scale-[1.01]">
+          <img src="techguys.png" alt="Our Team" class="w-full h-auto">
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-20">
+      <div class="bg-primary/5 p-8 rounded-2xl border border-primary/10">
+        <span class="text-sm font-semibold text-accent tracking-wider">OUR VISION</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Mission Statement</h2>
+        <blockquote class="text-2xl md:text-3xl font-medium italic text-gray-700 leading-normal">
+          "To empower businesses and visionaries with accessible, beautiful, and performant web solutions that create meaningful connections with their audience."
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="mb-20">
+      <span class="text-sm font-semibold text-accent tracking-wider">WHY CHOOSE US</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">What Makes Us Different</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/20 transition">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Pixel-Perfect Design</h3>
+          <p class="text-gray-600">We focus purely on clean front-end design with attention to every pixel, ensuring your site looks flawless across all devices.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/20 transition">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Performance Focus</h3>
+          <p class="text-gray-600">Lightning-fast load times with optimized assets and clean code structure for better SEO and user engagement.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/20 transition">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Custom Solutions</h3>
+          <p class="text-gray-600">Every project is handcrafted to your needs — no cookie-cutter templates. We build solutions that grow with your business.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/20 transition">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Transparent Process</h3>
+          <p class="text-gray-600">We keep you involved at every step with clear communication and regular updates throughout the design process.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-20">
+      <span class="text-sm font-semibold text-accent tracking-wider">OUR PRINCIPLES</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-8">Core Values</h2>
+      
+      <div class="space-y-8">
+        <div class="grid md:grid-cols-5 gap-6 items-center">
+          <div class="md:col-span-2 bg-gradient-to-br from-primary to-accent p-8 rounded-xl text-white">
+            <h3 class="text-2xl font-bold mb-2">Simplicity</h3>
+            <p class="opacity-90">Good design is as little design as possible.</p>
+          </div>
+          <div class="md:col-span-3 bg-white p-6 rounded-xl shadow-sm">
+            <p class="text-gray-700">
+              We believe in the power of simplicity. Our designs communicate more with less - clear navigation, thoughtful typography, and purposeful white space create elegant solutions that enhance user experience.
+            </p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-5 gap-6 items-center">
+          <div class="md:col-span-3 bg-white p-6 rounded-xl shadow-sm order-2 md:order-1">
+            <p class="text-gray-700">
+              Every pixel matters in how your site looks and feels. From the first mockup to the final deployment, we maintain rigorous quality standards with meticulous attention to detail that sets your digital presence apart.
+            </p>
+          </div>
+          <div class="md:col-span-2 bg-gradient-to-br from-accent to-secondary p-8 rounded-xl text-white order-1 md:order-2">
+            <h3 class="text-2xl font-bold mb-2">Quality</h3>
+            <p class="opacity-90">Excellence in every detail.</p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-5 gap-6 items-center">
+          <div class="md:col-span-2 bg-gradient-to-br from-secondary to-primary p-8 rounded-xl text-white">
+            <h3 class="text-2xl font-bold mb-2">Partnership</h3>
+            <p class="opacity-90">Your success is our success.</p>
+          </div>
+          <div class="md:col-span-3 bg-white p-6 rounded-xl shadow-sm">
+            <p class="text-gray-700">
+              We're invested in your growth. Beyond just delivering websites, we become digital partners for our clients - offering guidance, support, and solutions that evolve with your business needs over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="mb-20">
+      <span class="text-sm font-semibold text-accent tracking-wider">BEHIND THE SCENES</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-8">Meet The Founder</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl font-bold text-primary mb-2">Blessing Keabetswe Rankunyana</h3>
+          <p class="text-gray-600 mb-4">Founder & Lead Developer</p>
+          <p class="text-gray-700 mb-4">
+            With over 7 years of experience in front-end development and UI/UX design, Blessing founded Flexxy Tech Solutions with a vision to make high-quality web design accessible to businesses of all sizes.
+          </p>
+          <p class="text-gray-700 mb-6">
+            His expertise in modern web technologies and passion for clean, functional design drives the company's commitment to excellence. When not coding, you can find him mentoring young developers or speaking at tech conferences.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-primary transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-600 hover:text-primary transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-600 hover:text-primary transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-600 hover:text-primary transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-full overflow-hidden w-64 h-64 mx-auto border-4 border-white shadow-xl glow-hover order-1 md:order-2">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Blessing Keabetswe Rankunyana" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to bring your vision to life?</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">Let's discuss how we can create a digital experience that elevates your brand and engages your audience.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition">
+          Get in Touch
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+        <a href="portfolio.html" class="inline-flex items-center justify-center px-8 py-3 text-white border border-white rounded-full font-semibold hover:bg-white/10 transition">
+          View Our Work
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Flexxy Tech Solutions</h3>
+        <p class="mb-4">Creating digital experiences that inspire and engage.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v19.056c0 1.368-1.104 2.472-2.46 2.472h-6.276v-8.304h3.024l.456-3.576h-3.48v-2.22c0-1.08.02-1.8 1.092-1.8h2.316v-3.204h-3.024c-1.476 0-3.792.876-5.004 3.456-.648 1.38-.624 3.78-.624 4.224v1.524h-2.292v3.576h2.292v8.304h-8.58c-1.356 0-2.46-1.104-2.46-2.472v-19.056c0-1.368 1.104-2.472 2.46-2.472h16.08zm-9.42 7.92v2.22h-3.024v-3.504h.72c1.2 0 2.304-.372 2.304.672v.612zm4.38 8.88h3.024v3.504h-3.024v-3.504zm-1.2-4.2v-1.956c0-.6.408-.768.984-.816.408 0 .792.06 1.116.204l.168.084v2.616c-.648-.312-1.356-.528-2.268-.468-.336 0-.708.06-1.02.216l-.084.036v-.816h-.12zm1.2-5.16h-1.728v.024c0 .6-.36.948-1.152.948h-.54v-2.928h3.42v1.956z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+          <li><a href="portfolio.html" class="hover:text-white transition">Portfolio</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white transition">Web Design</a></li>
+          <li><a href="#" class="hover:text-white transition">UI/UX Design</a></li>
+          <li><a href="#" class="hover:text-white transition">Front-end Development</a></li>
+          <li><a href="#" class="hover:text-white transition">Responsive Design</a></li>
+          <li><a href="#" class="hover:text-white transition">Website Optimization</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+        <address class="not-italic">
+          <div class="flex items-start mb-2">
+            <svg class="w-5 h-5 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>123 Tech Street, Gaborone, Botswana</span>
+          </div>
+          <div class="flex items-center mb-2">
+            <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            <a href="tel:+26771234567" class="hover:text-white transition">+267 71 234 567</a>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <a href="mailto:info@flexxytech.com" class="hover:text-white transition">info@flexxytech.com</a>
+          </div>
+        </address>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 pt-6 pb-4">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p>&copy; 2023 Flexxy Tech Solutions. All rights reserved. | Built with passion by Blessing Keabetswe Rankunyana</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple animation triggers - could be expanded for more interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>
