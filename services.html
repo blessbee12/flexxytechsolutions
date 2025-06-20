@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Flexxy Tech Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #3b82f6;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Header with Navigation -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <img src="flexlogo.png" alt="Flexxy Tech Logo" class="h-12">
+          <span class="text-xl font-semibold text-gray-800">Flexxy Tech Solutions</span>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Home</a>
+          <a href="services.html" class="nav-link text-blue-600 hover:text-blue-600 transition">Services</a>
+          <a href="portfolio.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Portfolio</a>
+          <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 max-h-0">
+        <div class="pt-4 pb-2 space-y-2">
+          <a href="index.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Home</a>
+          <a href="services.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Services</a>
+          <a href="portfolio.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Portfolio</a>
+          <a href="contact.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl font-bold mb-4 animate-fade-in">
+        Our <span class="gradient-text">Services</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in">
+        Empowering your business with smart, flexible tech solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <main class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Business Intelligence -->
+      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+            <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-blue-600">Business Intelligence & Data Analysis</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          We turn your data into clear insights using tools like Power BI. We create interactive dashboards, reports, and visuals that help you make better business decisions.
+        </p>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-start">
+            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+            <span>Sales and customer dashboards</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+            <span>Data cleaning and transformation</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+            <span>Statistical analysis and reports</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Web Development -->
+      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+            <i class="fas fa-code text-purple-600 text-xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-purple-600">Web & Multimedia Development</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          We build modern, responsive websites that look great on all devices. We also design multimedia content for online use, including graphics, videos, and animations.
+        </p>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>Personal, business & e-commerce websites</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>Multimedia content creation</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>UI/UX design for web and mobile</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Systems Development -->
+      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+            <i class="fas fa-cogs text-green-600 text-xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-green-600">Systems Development</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          We develop custom systems that help businesses manage work more efficiently. From student management to bookings, we create smart solutions for your needs.
+        </p>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-start">
+            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+            <span>Web-based business systems</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+            <span>Database design and integration</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+            <span>System flowcharts and documentation</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Business Process Analysis -->
+      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+            <i class="fas fa-project-diagram text-yellow-600 text-xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-yellow-600">Business Process Analysis</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          We study how your business works and find ways to make it better. We analyze your current processes and suggest improvements or automations.
+        </p>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-start">
+            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+            <span>Process flow mapping</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+            <span>Efficiency improvements</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+            <span>Process documentation</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tech Tutoring -->
+      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 md:col-span-2">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+            <i class="fas fa-laptop-code text-red-600 text-xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-red-600">Tech Math & Computer Skills Tutoring</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          We help students and businesses understand tech-related mathematics, statistics, and computing skills. Perfect for learners, interns, and beginners.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Statistics & data interpretation</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Basic programming concepts</span>
+            </li>
+          </ul>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Support with computing courses</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Excel and data analysis</span>
+            </li>
+          </ul>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Database fundamentals</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
+              <span>Tech career guidance</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+      <h2 class="text-2xl font-bold mb-4">Need a Custom Solution?</h2>
+      <p class="text-blue-100 max-w-2xl mx-auto mb-6">
+        Let us build something tailored just for you. Contact us today and let's bring your ideas to life.
+      </p>
+      <a href="contact.html" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition shadow-lg transform hover:scale-105">
+        Get in Touch
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Company Info -->
+        <div>
+          <div class="text-2xl font-bold mb-4">
+            Flexxy <span class="text-blue-400">Tech</span>
+          </div>
+          <p class="mb-4">
+            Creating digital experiences that drive business growth and customer engagement.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-white transition">Portfolio</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-4">Contact Us</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+              <span>Block 6, Gaborone, Botswana</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+              <span>+267 76369503</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-blue-400"></i>
+              <span class="break-all">flexxytechsolutions@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p>&copy; 2025 Flexxy Tech Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible hover:bg-blue-700">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('max-h-0')) {
+        mobileMenu.classList.remove('max-h-0');
+        mobileMenu.classList.add('max-h-screen', 'py-4');
+      } else {
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-screen', 'py-4');
+      }
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+  </html> 
