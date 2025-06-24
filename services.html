@@ -1,358 +1,1387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_self">
   <title>Our Services | Flexxy Tech Solutions</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --accent: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --neutral: #64748b;
+      --success: #10b981;
     }
-    .animate-fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      transition: all 0.3s ease;
     }
+    
+    .dark body {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    
     .gradient-text {
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .service-card {
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9));
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .transition-all {
       transition: all 0.3s ease;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .nav-link {
-      position: relative;
-    }
-    .nav-link:after {
+    
+    .nav-link::after {
       content: '';
-      position: absolute;
+      display: block;
       width: 0;
       height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: #3b82f6;
-      transition: width 0.3s ease;
+      background: var(--accent);
+      transition: width 0.3s;
     }
-    .nav-link:hover:after {
+    
+    .nav-link:hover::after {
       width: 100%;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Service-specific styles */
+    .service-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-button {
+      transition: all 0.3s ease;
+    }
+    
+    .tab-button.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .wave-shape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+    
+    .wave-shape svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 100px;
+    }
+    
+    .wave-shape .shape-fill {
+      fill: var(--primary);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    
+    /* Accessibility focus styles */
+    .focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Skip to content link */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .sr-only:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+     .hero-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    #canvas3d {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    
+    .hero-gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8));
+      z-index: 2;
+      mix-blend-mode: multiply;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <!-- Header with Navigation -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4">
-      <div class="flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-          <img src="flexlogo.png" alt="Flexxy Tech Logo" class="h-12">
-          <span class="text-xl font-semibold text-gray-800">Flexxy Tech Solutions</span>
+<body class="dark:bg-gray-900 dark:text-gray-100">
+  <!-- Skip to content link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="flex items-center" id="logo-link">
+            <div class="flex-shrink-0 flex items-center">
+              <i class="fas fa-cube text-2xl gradient-text"></i>
+              <span class="ml-2 text-xl font-bold dark:text-white">Flexxy Tech</span>
+            </div>
+          </a>
         </div>
-        <nav class="hidden md:flex space-x-8">
-          <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Home</a>
-          <a href="services.html" class="nav-link text-blue-600 hover:text-blue-600 transition">Services</a>
-          <a href="portfolio.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Portfolio</a>
-          <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-600 transition">Contact</a>
-        </nav>
-        <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
-          <i class="fas fa-bars text-xl"></i>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+          <a href="services.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Services</a>
+          <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+          <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+          <button id="theme-toggle" class="p-2 rounded-full focus:outline-none" aria-label="Toggle dark mode">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline"></i>
+          </button>
+        </div>
+        <div class="-mr-2 flex items-center md:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Services</a>
+        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        <button id="mobile-theme-toggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i> Toggle Theme
         </button>
       </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300 max-h-0">
-        <div class="pt-4 pb-2 space-y-2">
-          <a href="index.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Home</a>
-          <a href="services.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Services</a>
-          <a href="portfolio.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Portfolio</a>
-          <a href="contact.html" class="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Contact</a>
-        </div>
-      </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl font-bold mb-4 animate-fade-in">
-        Our <span class="gradient-text">Services</span>
-      </h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in">
-        Empowering your business with smart, flexible tech solutions.
-      </p>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <main class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Business Intelligence -->
-      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-            <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Our <span class="gradient-text">Services</span>
+            </h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+              Comprehensive digital solutions tailored to your business needs
+            </p>
           </div>
-          <h2 class="text-xl font-semibold text-blue-600">Business Intelligence & Data Analysis</h2>
-        </div>
-        <p class="text-gray-700 mb-4">
-          We turn your data into clear insights using tools like Power BI. We create interactive dashboards, reports, and visuals that help you make better business decisions.
-        </p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start">
-            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-            <span>Sales and customer dashboards</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-            <span>Data cleaning and transformation</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-            <span>Statistical analysis and reports</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Web Development -->
-      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-            <i class="fas fa-code text-purple-600 text-xl"></i>
-          </div>
-          <h2 class="text-xl font-semibold text-purple-600">Web & Multimedia Development</h2>
-        </div>
-        <p class="text-gray-700 mb-4">
-          We build modern, responsive websites that look great on all devices. We also design multimedia content for online use, including graphics, videos, and animations.
-        </p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start">
-            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
-            <span>Personal, business & e-commerce websites</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
-            <span>Multimedia content creation</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
-            <span>UI/UX design for web and mobile</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Systems Development -->
-      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-            <i class="fas fa-cogs text-green-600 text-xl"></i>
-          </div>
-          <h2 class="text-xl font-semibold text-green-600">Systems Development</h2>
-        </div>
-        <p class="text-gray-700 mb-4">
-          We develop custom systems that help businesses manage work more efficiently. From student management to bookings, we create smart solutions for your needs.
-        </p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start">
-            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-            <span>Web-based business systems</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-            <span>Database design and integration</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-            <span>System flowcharts and documentation</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Business Process Analysis -->
-      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-            <i class="fas fa-project-diagram text-yellow-600 text-xl"></i>
-          </div>
-          <h2 class="text-xl font-semibold text-yellow-600">Business Process Analysis</h2>
-        </div>
-        <p class="text-gray-700 mb-4">
-          We study how your business works and find ways to make it better. We analyze your current processes and suggest improvements or automations.
-        </p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start">
-            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
-            <span>Process flow mapping</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
-            <span>Efficiency improvements</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
-            <span>Process documentation</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Tech Tutoring -->
-      <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 md:col-span-2">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-            <i class="fas fa-laptop-code text-red-600 text-xl"></i>
-          </div>
-          <h2 class="text-xl font-semibold text-red-600">Tech Math & Computer Skills Tutoring</h2>
-        </div>
-        <p class="text-gray-700 mb-4">
-          We help students and businesses understand tech-related mathematics, statistics, and computing skills. Perfect for learners, interns, and beginners.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Statistics & data interpretation</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Basic programming concepts</span>
-            </li>
-          </ul>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Support with computing courses</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Excel and data analysis</span>
-            </li>
-          </ul>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Database fundamentals</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-red-500 mt-1 mr-2"></i>
-              <span>Tech career guidance</span>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
+      <div class="wave-shape">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Services Tabs -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore Our <span class="gradient-text">Solutions</span></h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            We offer a comprehensive suite of services to help your business thrive in the digital age
+          </p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center mb-12">
+          <button class="tab-button px-6 py-3 rounded-full m-2 font-medium bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700" data-tab="web-development">
+            <i class="fas fa-code mr-2"></i> Web Development
+          </button>
+          <button class="tab-button px-6 py-3 rounded-full m-2 font-medium bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700" data-tab="business-intelligence">
+            <i class="fas fa-chart-line mr-2"></i> Business Intelligence
+          </button>
+          <button class="tab-button px-6 py-3 rounded-full m-2 font-medium bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700" data-tab="system-development">
+            <i class="fas fa-cogs mr-2"></i> System Development
+          </button>
+          <button class="tab-button px-6 py-3 rounded-full m-2 font-medium bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700" data-tab="process-automation">
+            <i class="fas fa-robot mr-2"></i> Process Automation
+          </button>
+          <button class="tab-button px-6 py-3 rounded-full m-2 font-medium bg-white dark:bg-gray-800 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700" data-tab="it-training">
+            <i class="fas fa-graduation-cap mr-2"></i> IT Training
+          </button>
+        </div>
+        
+        <!-- Web Development Tab Content -->
+        <div id="web-development" class="tab-content active">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-globe text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Custom Websites</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Bespoke website development tailored to your brand identity and business objectives.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Responsive design
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> CMS integration
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> SEO optimized
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-shopping-cart text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">E-Commerce Solutions</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Powerful online stores with seamless checkout and payment processing.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> WooCommerce/Shopify
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Payment gateways
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Inventory management
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-laptop-code text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Web Applications</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Custom web apps that streamline your business processes and workflows.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> React/Angular/Vue
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> API integration
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> User authentication
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Web Development Pricing Table -->
+          <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold dark:text-white">Web & Multimedia Development Pricing</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (BWP)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">One-page Static Website</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">400 – 600</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Simple HTML/CSS, no login</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Multi-page Website (3–5 pages)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">700 – 1,200</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Responsive, includes contact form</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Website Redesign</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">500 – 900</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Based on current site review</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Logo Design</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">200 – 350</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Includes 2–3 drafts</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Social Media Poster</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">80 – 150</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Per design (event, ad, announcement)</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Company Profile PDF Design</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">250 – 400</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">With brand colors and logo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-sm text-gray-600 dark:text-gray-300">
+              <p>💡 <strong>Notes:</strong> Prices are flexible based on project scope. Discounts available for students, NGOs, and repeat clients.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Business Intelligence Tab Content -->
+        <div id="business-intelligence" class="tab-content">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-chart-bar text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Data Visualization</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Transform raw data into actionable insights with Power BI and Tableau.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Interactive dashboards
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> KPI tracking
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Data storytelling
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-database text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Data Analysis</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Advanced analytics to uncover trends and business opportunities.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Excel/Power BI
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> SQL queries
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Data modeling
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-file-excel text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Excel Automation</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Automate repetitive Excel tasks and create powerful business tools.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> VBA macros
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Power Query
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Dashboard creation
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Business Intelligence Pricing Table -->
+          <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold dark:text-white">Business Intelligence & Data Analytics Pricing</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (BWP)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Data Cleaning & Preparation</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">150 – 250</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Per dataset (up to 500 rows)</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Excel Reports with Charts</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">200 – 300</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">For monthly/sales reports</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Power BI Dashboard (Basic)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">300 – 450</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Up to 2 pages with filters</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Power BI Dashboard (Advanced)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">600 – 900</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">With DAX, complex visuals</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Full Data Analysis Report</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">500 – 800</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Includes insights + visuals</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-sm text-gray-600 dark:text-gray-300">
+              <p>💡 <strong>Notes:</strong> Prices are flexible based on project scope. Discounts available for students, NGOs, and repeat clients.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- System Development Tab Content -->
+        <div id="system-development" class="tab-content">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-project-diagram text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Custom Software</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Tailored software solutions designed for your specific business needs.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Full SDLC
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> UML documentation
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Agile development
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-database text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Database Systems</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Robust database solutions for efficient data management.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> MS Access/SQL
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> ERD design
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Data normalization
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-users-cog text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">CRM Systems</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Customer relationship management systems to grow your business.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Contact management
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Sales tracking
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Reporting tools
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- System Development Pricing Table -->
+          <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold dark:text-white">System Development Pricing</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (BWP)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">System Planning (Flowchart, UML)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">300 – 500</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">For student or small biz project</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Custom System Dev (Student Project)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">600 – 900</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Includes flowcharts + pseudocode</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Full System Dev (Small Business)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">1,200 – 2,000</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Includes form designs & reports</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-sm text-gray-600 dark:text-gray-300">
+              <p>💡 <strong>Notes:</strong> Prices are flexible based on project scope. Discounts available for students, NGOs, and repeat clients.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Process Automation Tab Content -->
+        <div id="process-automation" class="tab-content">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-tasks text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Workflow Automation</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Streamline repetitive tasks and improve operational efficiency.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Process mapping
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Automation design
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Implementation
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-robot text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">RPA Solutions</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Robotic Process Automation to handle repetitive digital tasks.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> UI Path/Power Automate
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Screen scraping
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Data extraction
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-cogs text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Business Process Optimization</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Analyze and improve your business processes for maximum efficiency.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Process analysis
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Bottleneck identification
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Continuous improvement
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Process Automation Pricing Table -->
+          <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold dark:text-white">Business Process Automation Pricing</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (BWP)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Business Process Mapping</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">300 – 500</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">With recommendations</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Workflow Automation (1 process)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">400 – 700</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Using Google/Microsoft tools</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Automation Training (per session)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">150 – 250</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Teach team how to use tools</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-sm text-gray-600 dark:text-gray-300">
+              <p>💡 <strong>Notes:</strong> Prices are flexible based on project scope. Discounts available for students, NGOs, and repeat clients.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- IT Training Tab Content -->
+        <div id="it-training" class="tab-content">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Power BI Training</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Master data visualization and business intelligence with Power BI.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Data modeling
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> DAX formulas
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Dashboard design
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-file-excel text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Excel Advanced</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Take your Excel skills to the next level with advanced techniques.
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> PivotTables
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Power Query
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Advanced formulas
+                </li>
+              </ul>
+            </div>
+            
+            <div class="service-card bg-white dark:bg-gray-800 p-8 shadow-md">
+              <div class="feature-icon">
+                <i class="fas fa-code text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3 dark:text-white">Web Development Basics</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Learn the fundamentals of web development (HTML, CSS, JavaScript).
+              </p>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> HTML5/CSS3
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Responsive design
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i> Basic JavaScript
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- IT Training Pricing Table -->
+          <div class="mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold dark:text-white">Training & Coaching Pricing</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Service</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price (BWP)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Notes</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Web Design Basics (2-week course)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">400</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Includes HTML/CSS intro</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Power BI & Excel (1-week course)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">500</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Practical hands-on training</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Personal Tech Coaching (1 hr)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">100</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">One-on-one mentorship</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Group Workshop (3+ people)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">300/person</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">Custom topics available</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700 text-sm text-gray-600 dark:text-gray-300">
+              <p>💡 <strong>Notes:</strong> All prices are flexible based on project scope. Discounts available for students, NGOs, and repeat clients. Quotes can be provided after consultation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent <span class="gradient-text">Pricing</span></h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Choose the plan that fits your needs. No hidden fees, cancel anytime.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-center mb-4 dark:text-white">Starter</h3>
+              <div class="text-center mb-6">
+                <span class="text-4xl font-bold dark:text-white">P999</span>
+                <span class="text-gray-600 dark:text-gray-400">/month</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Up to 5 pages website</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Basic SEO</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Mobile responsive</span>
+                </li>
+                <li class="flex items-center text-gray-400">
+                  <i class="fas fa-times text-red-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">E-commerce</span>
+                </li>
+                <li class="flex items-center text-gray-400">
+                  <i class="fas fa-times text-red-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">CMS integration</span>
+                </li>
+              </ul>
+              <a href="contact.html" class="block w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-medium py-3 px-4 rounded-lg text-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border-2 border-blue-500 relative transition-all card-hover">
+            <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+              POPULAR
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-center mb-4 dark:text-white">Professional</h3>
+              <div class="text-center mb-6">
+                <span class="text-4xl font-bold dark:text-white">P2,999</span>
+                <span class="text-gray-600 dark:text-gray-400">/month</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Up to 15 pages website</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Advanced SEO</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Mobile responsive</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Basic e-commerce</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">CMS integration</span>
+                </li>
+              </ul>
+              <a href="contact.html" class="block w-full btn-primary text-white font-medium py-3 px-4 rounded-lg text-center hover:opacity-90 transition-opacity">
+                Get Started
+              </a>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-center mb-4 dark:text-white">Enterprise</h3>
+              <div class="text-center mb-6">
+                <span class="text-4xl font-bold dark:text-white">P5,999</span>
+                <span class="text-gray-600 dark:text-gray-400">/month</span>
+              </div>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Unlimited pages</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Premium SEO</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Mobile responsive</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Advanced e-commerce</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2"></i>
+                  <span class="text-gray-600 dark:text-gray-400">Custom CMS</span>
+                </li>
+              </ul>
+              <a href="contact.html" class="block w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-medium py-3 px-4 rounded-lg text-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="gradient-text">Clients Say</span></h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Don't just take our word for it - hear from businesses we've helped transform.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition-all card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" loading="lazy">
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-bold dark:text-white">Sarah Johnson</h4>
+                <p class="text-gray-600 dark:text-gray-400">CEO, TechStart Inc.</p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 italic">
+              "Flexxy transformed our online presence with a stunning website that perfectly represents our brand. Their team was professional, creative, and delivered on time."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition-all card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" loading="lazy">
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-bold dark:text-white">Michael Chen</h4>
+                <p class="text-gray-600 dark:text-gray-400">CTO, RetailPro</p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 italic">
+              "The business intelligence dashboards Flexxy developed gave us insights we never had before. Their data expertise is exceptional."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition-all card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" loading="lazy">
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-bold dark:text-white">Emma Rodriguez</h4>
+                <p class="text-gray-600 dark:text-gray-400">Marketing Director, HealthPlus</p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 italic">
+              "Their process automation services saved us hundreds of hours in manual work. Highly recommend their technical expertise."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA Section -->
-    <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
-      <h2 class="text-2xl font-bold mb-4">Need a Custom Solution?</h2>
-      <p class="text-blue-100 max-w-2xl mx-auto mb-6">
-        Let us build something tailored just for you. Contact us today and let's bring your ideas to life.
-      </p>
-      <a href="contact.html" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition shadow-lg transform hover:scale-105">
-        Get in Touch
-      </a>
-    </div>
+    <section class="py-20 gradient-bg text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+        <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          Let's discuss how Flexxy Tech Solutions can help you achieve your digital goals.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="contact.html" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-gray-100">
+            Get a Free Quote <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="contact.html" class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-white hover:text-blue-600">
+            Contact Us <i class="fas fa-envelope ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Company Info -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <div class="text-2xl font-bold mb-4">
-            Flexxy <span class="text-blue-400">Tech</span>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-cube text-2xl gradient-text"></i>
+            <span class="ml-2 text-xl font-bold text-white">Flexxy Tech</span>
           </div>
-          <p class="mb-4">
-            Creating digital experiences that drive business growth and customer engagement.
+          <p class="text-sm mb-4">
+            Digital transformation solutions for businesses in Botswana.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a href="https://wa.me/26776369503" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-whatsapp"></i>
+              <span class="sr-only">WhatsApp</span>
+            </a>
           </div>
         </div>
         
-        <!-- Quick Links -->
         <div>
-          <h3 class="text-white font-bold text-lg mb-4">Quick Links</h3>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Services</h3>
           <ul class="space-y-2">
-            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
-            <li><a href="services.html" class="hover:text-white transition">Services</a></li>
-            <li><a href="portfolio.html" class="hover:text-white transition">Portfolio</a></li>
-            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+            <li><a href="services.html#web-development" class="text-sm hover:text-white transition-colors">Web Development</a></li>
+            <li><a href="services.html#business-intelligence" class="text-sm hover:text-white transition-colors">Business Intelligence</a></li>
+            <li><a href="services.html#system-development" class="text-sm hover:text-white transition-colors">System Development</a></li>
+            <li><a href="services.html#process-automation" class="text-sm hover:text-white transition-colors">Process Automation</a></li>
           </ul>
         </div>
         
-        <!-- Contact -->
         <div>
-          <h3 class="text-white font-bold text-lg mb-4">Contact Us</h3>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Company</h3>
           <ul class="space-y-2">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Block 6, Gaborone, Botswana</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
-              <span>+267 76369503</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-envelope mr-3 text-blue-400"></i>
-              <span class="break-all">flexxytechsolutions@gmail.com</span>
-            </li>
+            <li><a href="about.html" class="text-sm hover:text-white transition-colors">About Us</a></li>
+            <li><a href="projects.html" class="text-sm hover:text-white transition-colors">Our Projects</a></li>
+            <li><a href="blog.html" class="text-sm hover:text-white transition-colors">Blog</a></li>
+            <li><a href="careers.html" class="text-sm hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="text-sm">Block 6, Gaborone</li>
+            <li class="text-sm">Botswana</li>
+            <li class="text-sm">flexxytechsolutions@gmail.com</li>
+            <li class="text-sm">+267 76369503</li>
           </ul>
         </div>
       </div>
       
-      <!-- Copyright -->
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-        <p>&copy; 2025 Flexxy Tech Solutions. All rights reserved.</p>
+      <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm">
+          &copy; 2024 Flexxy Tech Solutions. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0">
+          <a href="privacy-policy.html" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+          <span class="mx-2">•</span>
+          <a href="terms-of-service.html" class="text-sm hover:text-white transition-colors">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible hover:bg-blue-700">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
+  <!-- Three.js Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+  
   <script>
-    // Mobile Menu Toggle
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    if (themeToggle && mobileThemeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+      mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    function toggleTheme() {
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+    
+    // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    mobileMenuButton.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('max-h-0')) {
-        mobileMenu.classList.remove('max-h-0');
-        mobileMenu.classList.add('max-h-screen', 'py-4');
-      } else {
-        mobileMenu.classList.add('max-h-0');
-        mobileMenu.classList.remove('max-h-screen', 'py-4');
-      }
-    });
-
-    // Back to Top Button
-    const backToTopButton = document.getElementById('back-to-top');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+      });
+    }
     
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.remove('opacity-100', 'visible');
-        backToTopButton.classList.add('opacity-0', 'invisible');
-      }
-    });
+    // Tab functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
     
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = button.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
       });
     });
+    
+    // Set first tab as active by default
+    if (tabButtons.length > 0 && tabContents.length > 0) {
+      tabButtons[0].classList.add('active');
+      tabContents[0].classList.add('active');
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    });
+    
+    // Initialize dark mode based on preference
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Initialize 3D scene
+    const canvas = document.querySelector('#canvas3d');
+    if (canvas) {
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(document.documentElement.classList.contains('dark') ? 0x0f172a : 0xf8fafc);
+      
+      // Camera
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+      
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(1, 1, 1);
+      scene.add(directionalLight);
+      
+      // Create floating tech elements
+      createTechElements();
+      
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        // Rotate all objects in the scene
+        scene.children.forEach(child => {
+          if (child instanceof THREE.Mesh) {
+            child.rotation.x += 0.001;
+            child.rotation.y += 0.002;
+          }
+        });
+        
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+      
+      // Create tech elements (cubes, spheres, etc.)
+      function createTechElements() {
+        const geometryTypes = [
+          new THREE.BoxGeometry(0.8, 0.8, 0.8),
+          new THREE.SphereGeometry(0.5, 32, 32),
+          new THREE.ConeGeometry(0.5, 1, 32),
+          new THREE.TorusGeometry(0.4, 0.1, 16, 32),
+          new THREE.OctahedronGeometry(0.6)
+        ];
+        
+        // Create 15 floating elements
+        for (let i = 0; i < 15; i++) {
+          const geometry = geometryTypes[Math.floor(Math.random() * geometryTypes.length)];
+          const material = new THREE.MeshPhongMaterial({
+            color: new THREE.Color(
+              Math.random() * 0.2 + 0.1, // R (blue-ish)
+              Math.random() * 0.3 + 0.3, // G 
+              Math.random() * 0.5 + 0.5  // B
+            ),
+            emissive: new THREE.Color(0x3b82f6), // Your accent color
+            emissiveIntensity: 0.2,
+            shininess: 100,
+            transparent: true,
+            opacity: 0.9
+          });
+          
+          const mesh = new THREE.Mesh(geometry, material);
+          
+          // Random position
+          mesh.position.x = (Math.random() - 0.5) * 10;
+          mesh.position.y = (Math.random() - 0.5) * 10;
+          mesh.position.z = (Math.random() - 0.5) * 10;
+          
+          // Random rotation
+          mesh.rotation.x = Math.random() * Math.PI;
+          mesh.rotation.y = Math.random() * Math.PI;
+          
+          // Random scale
+          const scale = Math.random() * 0.5 + 0.5;
+          mesh.scale.set(scale, scale, scale);
+          
+          // Add to scene
+          scene.add(mesh);
+        }
+      }
+      
+      // Watch for theme changes
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          setTimeout(() => {
+            scene.background = document.documentElement.classList.contains('dark') 
+              ? new THREE.Color(0x0f172a) 
+              : new THREE.Color(0xf8fafc);
+          }, 100);
+        });
+      }
+    }
   </script>
 </body>
-  </html> 
+</html>
