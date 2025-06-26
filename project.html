@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects - Flexxy Tech Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --accent: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --neutral: #64748b;
+      --success: #10b981;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .dark body {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    .project-card {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .dark .tech-badge {
+      background: #1e3a8a;
+      color: #bfdbfe;
+    }
+    
+    .mobile-mockup {
+      position: relative;
+      width: 280px;
+      height: 560px;
+      border: 10px solid #1e293b;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin: 0 auto;
+    }
+    
+    .dark .mobile-mockup {
+      border-color: #334155;
+    }
+    
+    .mobile-mockup::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 20px;
+      background: #1e293b;
+      border-radius: 10px;
+      z-index: 2;
+    }
+    
+    .mobile-mockup-content {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .mobile-mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    .project-image {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .status-badge {
+      @apply text-xs px-2 py-1 rounded-full font-medium;
+    }
+    
+    .media-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .media-item {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .media-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .media-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .project-details {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    
+    .dark .project-details {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Logo Styles */
+    .nav-logo {
+      height: 2.5rem;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-logo:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    
+    .footer-logo {
+      height: 3rem;
+      width: auto;
+    }
+  </style>
+</head>
+<body class="dark:bg-gray-900 dark:text-gray-100">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <!-- Your Logo Here -->
+              <img src="flexlogo.png" alt="Flexxy Tech Solutions" class="nav-logo">
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+          <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+          <a href="services.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+          <a href="projects.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Projects</a>
+          <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full focus:outline-none">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline"></i>
+          </button>
+        </div>
+        <div class="-mr-2 flex items-center md:hidden">
+          <button id="mobile-menu-button" aria-label="Toggle mobile menu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Projects</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        <button id="mobile-theme-toggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i> Toggle Theme
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative gradient-bg text-white overflow-hidden pt-24">
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">My <span class="gradient-text">Projects</span></h1>
+      <p class="text-xl md:text-2xl opacity-90 mb-8">Showcasing my frontend development work with Tailwind, Bootstrap, HTML & CSS</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#web" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Web Projects</a>
+        <a href="#mobile" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Mobile Projects</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Web Projects Section -->
+  <section id="web" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Web <span class="gradient-text">Projects</span></h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Responsive, accessible websites built with modern frontend technologies
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Flexxy Tech Solutions -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Flexxy Tech Solutions" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Flexxy Tech Solutions</h3>
+              <span class="status-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">Live</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Company website showcasing services with responsive design and modern UI
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Noko Lam Holdings -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Noko Lam Holdings" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Noko Lam Holdings</h3>
+              <span class="status-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">Live</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Construction company website with e-commerce capabilities
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">Bootstrap</span>
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moono Wa Baithuti -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+               alt="Moono Wa Baithuti" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Moono Wa Baithuti</h3>
+              <span class="status-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">Active</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Political student movement website with membership management features
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flawless Finish -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" 
+               alt="Flawless Finish" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Flawless Finish</h3>
+              <span class="status-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">Live</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Beauty bar website with online booking system and service catalog
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">Bootstrap</span>
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Portfolio -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Personal Portfolio" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Personal Portfolio</h3>
+              <span class="status-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">Updated</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Interactive portfolio showcasing frontend projects and skills
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Alliance -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+               alt="Student Alliance" 
+               class="project-image">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="text-xl font-bold dark:text-white">Student Alliance</h3>
+              <span class="status-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">Active</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Website for a student political party focused on unity and justice
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge">Bootstrap</span>
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                View Project <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Projects Section -->
+  <section id="mobile" class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Mobile <span class="gradient-text">Projects</span></h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Responsive mobile-first designs with excellent user experience
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- AmeyDrip Restaurant -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 p-6 flex items-center justify-center">
+              <div class="mobile-mockup">
+                <div class="mobile-mockup-content">
+                  <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AmeyDrip Restaurant">
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold dark:text-white">AmeyDrip Restaurant</h3>
+                <span class="status-badge bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">In Progress</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Food and lifestyle brand mobile-first website with responsive menu
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                  View Project <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mpole's Events -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg animate-fade-in">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 p-6 flex items-center justify-center">
+              <div class="mobile-mockup">
+                <div class="mobile-mockup-content">
+                  <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mpole's Events">
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold dark:text-white">Mpole's Events</h3>
+                <span class="status-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">Live</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">
+                Event planning business mobile website with booking system
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                  View Project <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-500" title="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="gradient-bg text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Need a Frontend Developer?</h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">Let's discuss how I can help with your next web or mobile project.</p>
+      <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">
+        Contact Me Now
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <!-- Footer Logo -->
+            <img src="flexlogo.png" alt="Flexxy Tech Solutions" class="footer-logo">
+          </div>
+          <p class="text-sm mb-4">
+            Block 6, Gaborone, Botswana<br>
+            Phone: +267 76369503<br>
+            Email: flexxytechsolutions@gmail.com
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="hover:text-white transition-colors">Web Development</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Mobile Development</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">UI/UX Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+        <p class="text-sm">
+          &copy; 2024 Flexxy Tech Solutions. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    if (themeToggle && mobileThemeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+      mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    function toggleTheme() {
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Initialize dark mode based on preference
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Animation observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.animate-fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+  </html>
