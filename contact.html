@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self">
+  <title>Contact Us – Flexxy Tech Solutions</title>
+  <meta name="description" content="Get in touch with Flexxy Tech Solutions for ICT services in Botswana including web development, business intelligence, and system automation">
+  <meta property="og:title" content="Contact Flexxy Tech Solutions | ICT Services in Botswana">
+  <meta property="og:description" content="Reach out to Botswana's premier technology solutions provider for your digital transformation needs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.flexxytechsolutions.com/contact.html">
+  
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --accent: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --neutral: #64748b;
+      --success: #10b981;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+    
+    .dark body {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, 
+        rgba(37, 99, 235, 1) 0%, 
+        rgba(30, 64, 175, 1) 100%);
+    }
+    
+    .hero-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 30%, rgba(255,255,255,0.1) 0%, transparent 25%),
+        radial-gradient(circle at 75% 70%, rgba(255,255,255,0.1) 0%, transparent 25%);
+      background-size: 400% 400%;
+      animation: gradient-move 15s ease infinite;
+    }
+    
+    @keyframes gradient-move {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .transition-all {
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Form styles */
+    .form-input {
+      transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+    
+    .form-input.error {
+      border-color: #ef4444;
+    }
+    
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    
+    /* Loading spinner */
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="dark:bg-gray-900 dark:text-gray-100">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center" id="logo-link">
+            <div class="flex-shrink-0 flex items-center">
+              <i class="fas fa-cube text-2xl gradient-text"></i>
+              <span class="ml-2 text-xl font-bold dark:text-white">Flexxy Tech</span>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+          <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+          <a href="services.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+          <a href="projects.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+          <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Contact</a>
+          <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full focus:outline-none">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline"></i>
+          </button>
+        </div>
+        <div class="-mr-2 flex items-center md:hidden">
+          <button id="mobile-menu-button" aria-label="Toggle mobile menu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">Contact</a>
+        <button id="mobile-theme-toggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i> Toggle Theme
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative hero-gradient hero-pattern text-white overflow-hidden pt-24">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-800/20"></div>
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in <span class="gradient-text">Touch</span></h1>
+      <p class="text-xl md:text-2xl opacity-90 mb-8">We'd love to hear from you and discuss how we can help with your technology needs.</p>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:items-center md:space-x-12">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact <span class="gradient-text">Information</span></h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+            Reach out to our team in Gaborone for inquiries, quotes, or to discuss your project requirements.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
+                <i class="fas fa-map-marker-alt text-white" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium dark:text-white">Our Address</h3>
+                <p class="text-gray-600 dark:text-gray-400">Block 6, Gaborone, Botswana</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
+                <i class="fas fa-envelope text-white" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium dark:text-white">Email Us</h3>
+                <p class="text-gray-600 dark:text-gray-400">flexxytechsolutions@gmail.com</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">(info@flexxytech.co.bw also available)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
+                <i class="fas fa-phone-alt text-white" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium dark:text-white">Call Us</h3>
+                <p class="text-gray-600 dark:text-gray-400">+267 76369503</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
+                <i class="fab fa-whatsapp text-white" aria-hidden="true"></i>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium dark:text-white">WhatsApp</h3>
+                <p class="text-gray-600 dark:text-gray-400">+267 76369503</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-lg font-medium dark:text-white mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i class="fab fa-facebook-f text-xl" aria-hidden="true"></i>
+                <span class="sr-only">Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+                <span class="sr-only">Instagram</span>
+              </a>
+              <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i class="fab fa-linkedin-in text-xl" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-1/2">
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold mb-6 dark:text-white">Send Us a Message</h3>
+            <form id="contact-form" class="space-y-6">
+              <!-- Honeypot field -->
+              <input type="text" name="honeypot" style="display: none;">
+              
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white form-input">
+                <div class="error-message" id="name-error">Please enter your name</div>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address <span class="text-red-500">*</span></label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white form-input">
+                <div class="error-message" id="email-error">Please enter a valid email</div>
+              </div>
+              
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white form-input">
+              </div>
+              
+              <div>
+                <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Interest</label>
+                <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white">
+                  <option value="">Select a service</option>
+                  <option value="business-intelligence">Business Intelligence</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="system-development">System Development</option>
+                  <option value="process-automation">Process Automation</option>
+                  <option value="multimedia-design">Multimedia Design</option>
+                  <option value="it-training">IT Training</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message <span class="text-red-500">*</span></label>
+                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white form-input"></textarea>
+                <div class="error-message" id="message-error">Please enter your message</div>
+              </div>
+              
+              <div>
+                <button type="submit" id="submit-btn" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg w-full flex items-center justify-center">
+                  <span id="submit-text">Send Message</span>
+                  <span id="spinner" class="spinner ml-2"></span>
+                </button>
+              </div>
+              <div id="form-success" class="hidden p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg">
+                Thank you! Your message has been sent. We'll get back to you soon.
+              </div>
+              <div id="form-error" class="hidden p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
+                There was an error submitting your message. Please try again or contact us directly.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-10 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Our <span class="gradient-text">Location</span></h2>
+      <div class="rounded-xl overflow-hidden shadow-xl h-96">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.847550836272!2d25.9231!3d-24.6282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDM3JzQxLjUiUyAyNcKwNTUnMjMuMiJF!5e0!3m2!1sen!2sbw!4v1620000000000!5m2!1sen!2sbw" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                class="dark:grayscale dark:opacity-90"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="gradient-bg text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">Let's discuss how we can help your business with custom technology solutions.</p>
+      <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition">
+        Contact Us Now
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-cube text-2xl gradient-text" aria-hidden="true"></i>
+            <span class="ml-2 text-xl font-bold text-white">Flexxy Tech</span>
+          </div>
+          <p class="text-sm mb-4">
+            Block 6, Gaborone, Botswana<br>
+            Phone: +267 76369503<br>
+            Email: flexxytechsolutions@gmail.com
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a href="https://wa.me/26776369503" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <span class="sr-only">WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html#business-intelligence" class="hover:text-white transition-colors">Business Intelligence</a></li>
+            <li><a href="services.html#web-development" class="hover:text-white transition-colors">Web Development</a></li>
+            <li><a href="services.html#system-development" class="hover:text-white transition-colors">System Development</a></li>
+            <li><a href="services.html#process-automation" class="hover:text-white transition-colors">Process Automation</a></li>
+            <li><a href="services.html#multimedia-design" class="hover:text-white transition-colors">Multimedia Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Our Projects</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            <li><a href="careers.html" class="hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+            <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
+            <li><a href="whitepapers.html" class="hover:text-white transition-colors">Whitepapers</a></li>
+            <li><a href="faq.html" class="hover:text-white transition-colors">FAQs</a></li>
+            <li><a href="support.html" class="hover:text-white transition-colors">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm">
+          &copy; 2024 Flexxy Tech Solutions. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0">
+          <a href="privacy-policy.html" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+          <span class="mx-2">•</span>
+          <a href="terms-of-service.html" class="text-sm hover:text-white transition-colors">Terms of Service</a>
+          <span class="mx-2">•</span>
+          <a href="https://www.flexxytechsolutions.com" class="text-sm hover:text-white transition-colors">Website</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Flexxy Tech Solutions",
+      "image": "https://www.flexxytechsolutions.com/images/logo.png",
+      "@id": "https://www.flexxytechsolutions.com",
+      "url": "https://www.flexxytechsolutions.com",
+      "telephone": "+26776369503",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Block 6",
+        "addressLocality": "Gaborone",
+        "addressCountry": "BW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -24.6282,
+        "longitude": 25.9231
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/FlexxyTechSolutions",
+        "https://www.instagram.com/flexxytechsolutions",
+        "https://www.linkedin.com/company/flexxy-tech-solutions"
+      ]
+    }
+    </script>
+  </footer>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    if (themeToggle && mobileThemeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+      mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    function toggleTheme() {
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Form submission with validation
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset error states
+        document.querySelectorAll('.form-input').forEach(input => {
+          input.classList.remove('error');
+        });
+        document.querySelectorAll('.error-message').forEach(error => {
+          error.style.display = 'none';
+        });
+        document.getElementById('form-success').classList.add('hidden');
+        document.getElementById('form-error').classList.add('hidden');
+        
+        // Validate form
+        let isValid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        
+        if (!name.value.trim()) {
+          name.classList.add('error');
+          document.getElementById('name-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          email.classList.add('error');
+          document.getElementById('email-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        if (!message.value.trim()) {
+          message.classList.add('error');
+          document.getElementById('message-error').style.display = 'block';
+          isValid = false;
+        }
+        
+        if (!isValid) return;
+        
+        // Show loading state
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const spinner = document.getElementById('spinner');
+        
+        submitBtn.disabled = true;
+        submitText.textContent = 'Sending...';
+        spinner.style.display = 'block';
+        
+        // Simulate form submission (replace with actual AJAX call)
+        setTimeout(() => {
+          // Hide loading state
+          submitBtn.disabled = false;
+          submitText.textContent = 'Send Message';
+          spinner.style.display = 'none';
+          
+          // Show success message
+          document.getElementById('form-success').classList.remove('hidden');
+          
+          // Reset form
+          contactForm.reset();
+          
+          // Scroll to success message
+          document.getElementById('form-success').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }, 1500);
+      });
+    }
+    
+    // Initialize dark mode based on preference
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</body>
+    </html>
