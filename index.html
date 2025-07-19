@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base target="_self">
   <title>Flexxy Tech Solutions | ICT Services in Botswana</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +80,7 @@
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     
+    /* Floating animation */
     .animate-float {
       animation: float 6s ease-in-out infinite;
     }
@@ -90,6 +89,201 @@
       0% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
       100% { transform: translateY(0px); }
+    }
+    
+    /* Circuit background */
+    .circuit-bg {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff"><path d="M30,10 L40,10 L40,20 L30,20 Z M60,10 L70,10 L70,20 L60,20 Z M10,30 L20,30 L20,40 L10,40 Z M80,30 L90,30 L90,40 L80,40 Z M30,60 L40,60 L40,70 L30,70 Z M60,60 L70,60 L70,70 L60,70 Z M10,80 L20,80 L20,90 L10,90 Z M80,80 L90,80 L90,90 L80,90 Z M45,45 L55,45 L55,55 L45,55 Z"/></svg>');
+      background-size: 60px 60px;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+    
+    /* Glow hover effect */
+    .glow-hover:hover {
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    }
+    
+    /* Fade-in animation */
+    .animate-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Hero pattern */
+    .hero-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 30%, rgba(255,255,255,0.1) 0%, transparent 25%),
+        radial-gradient(circle at 75% 70%, rgba(255,255,255,0.1) 0%, transparent 25%);
+      background-size: 400% 400%;
+    }
+    
+    /* Floating elements animation */
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.2;
+      animation: float-random 15s ease-in-out infinite;
+    }
+    
+    @keyframes float-random {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(10px, -15px); }
+      50% { transform: translate(-10px, 10px); }
+      75% { transform: translate(15px, 5px); }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    
+    .dark ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+    
+    .dark ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+    
+    /* Pulse animation for CTA */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Custom checkbox */
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #cbd5e1;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+    }
+    
+    .custom-checkbox:checked {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    
+    .custom-checkbox:checked::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      color: white;
+      font-size: 12px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    /* Custom radio button */
+    .custom-radio {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #cbd5e1;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+    }
+    
+    .custom-radio:checked {
+      border-color: var(--primary);
+    }
+    
+    .custom-radio:checked::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+    }
+    
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #1e293b;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .tooltip .tooltip-text::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #1e293b transparent transparent transparent;
+    }
+    
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
     }
   </style>
 </head>
@@ -107,10 +301,10 @@
           </a>
         </div>
         <div class="hidden md:flex items-center space-x-8">
-                  <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
-        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
-        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+          <a href="#services" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+          <a href="#about" class="nav-link px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">About</a>
+          <a href="#projects" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+          <a href="#contact" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
           <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
             <i class="fas fa-moon dark:hidden"></i>
             <i class="fas fa-sun hidden dark:inline"></i>
@@ -127,10 +321,10 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
-        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
-        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
         <button id="mobile-theme-toggle" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
           <i class="fas fa-moon dark:hidden"></i>
           <i class="fas fa-sun hidden dark:inline"></i> Toggle Theme
@@ -139,60 +333,207 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient text-white pt-24 pb-20 md:pt-32 md:pb-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex md:items-center md:justify-between">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Botswana's <span class="gradient-text">Digital</span> Solutions Partner
-          </h1>
-          <p class="text-xl text-blue-100 mb-8">
-            Empowering businesses and students with affordable, high-quality technology services.
-          </p>
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="contact.html" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center">
-              Get Started <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-            <a href="services.html" class="bg-white dark:bg-gray-900 text-blue-600 dark:text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-gray-100 dark:hover:bg-gray-800">
-              Our Services <i class="fas fa-book-open ml-2"></i>
-            </a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-               alt="Digital Solutions in Botswana" 
-               class="rounded-xl shadow-2xl w-full max-w-md animate-float">
-        </div>
-      </div>
+ <!-- Tech-Savvy Hero Section with Particle Network -->
+<header class="relative overflow-hidden bg-gray-900 text-white pt-24">
+  <!-- Particle network background -->
+  <div id="particle-network" class="absolute inset-0 opacity-20"></div>
+  
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 bg-grid-slate-400/[0.05]"></div>
+  
+  <!-- Floating tech elements -->
+  <div class="tech-orb orb-1 w-32 h-32 bg-blue-500/20 rounded-full blur-xl absolute top-1/4 left-1/4 animate-float-tech" style="animation-delay: 0s"></div>
+  <div class="tech-orb orb-2 w-40 h-40 bg-purple-500/20 rounded-full blur-xl absolute top-1/3 right-1/4 animate-float-tech" style="animation-delay: 2s"></div>
+  <div class="tech-orb orb-3 w-36 h-36 bg-emerald-500/20 rounded-full blur-xl absolute bottom-1/4 right-1/3 animate-float-tech" style="animation-delay: 4s"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+      Botswana's <span class="gradient-text">Digital</span> Solutions Partner
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in" style="transition-delay: 0.2s;">
+      Empowering businesses and students with affordable, high-quality technology services.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="transition-delay: 0.4s;">
+      <a href="#contact" class="relative group px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg font-bold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+        <span class="relative z-10">Get Started</span>
+        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+      </a>
+      <a href="#services" class="relative group px-8 py-3 border border-gray-700 rounded-lg font-bold transition-all duration-300 hover:bg-gray-800/50 hover:border-blue-400/30 hover:shadow-lg hover:shadow-blue-500/10">
+        <span class="relative z-10">Our Services</span>
+        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-gray-800/50 to-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+      </a>
     </div>
-  </section>
+  </div>
+</header>
+
+<style>
+  /* Particle network background */
+  #particle-network {
+    background: radial-gradient(ellipse at center, rgba(9,11,16,0.9) 0%, #090b10 100%);
+  }
+  
+  /* Floating tech orb animation */
+  @keyframes float-tech {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(5deg); }
+    50% { transform: translate(-10px, 10px) rotate(-5deg); }
+    75% { transform: translate(15px, 5px) rotate(3deg); }
+  }
+  
+  .animate-float-tech {
+    animation: float-tech 15s ease-in-out infinite;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Fade-in animation */
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Grid overlay */
+  .bg-grid-slate-400\/\[0\.05\] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+</style>
+
+<script>
+  // Initialize particle network
+  function initParticleNetwork() {
+    const container = document.getElementById('particle-network');
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    container.appendChild(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    
+    const particles = [];
+    const particleCount = Math.floor(window.innerWidth / 10);
+    
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.2,
+        speedY: (Math.random() - 0.5) * 0.2,
+        color: `rgba(100, 200, 255, ${Math.random() * 0.2 + 0.05})`
+      });
+    }
+    
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        
+        // Bounce off edges
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+        
+        // Draw particle
+        ctx.fillStyle = particle.color;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 100) {
+            ctx.strokeStyle = `rgba(100, 200, 255, ${1 - distance / 100})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    });
+  }
+  
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', () => {
+    initParticleNetwork();
+    
+    // Trigger animations
+    const animateElements = document.querySelectorAll('.animate-fade-in');
+    animateElements.forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.2}s`;
+    });
+  });
+</script>
 
   <!-- Trusted By Section -->
-  <section class="py-12 bg-gray-50 dark:bg-gray-800">
+  <section class="py-12 bg-gray-50 dark:bg-gray-800 animate-fade-in">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-center text-gray-500 dark:text-gray-400 text-sm font-semibold uppercase tracking-wider mb-8">
         Our Technology Partners
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="flex justify-center">
-          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all">
+          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all tooltip">
             <i class="fab fa-microsoft text-4xl"></i>
+            <span class="tooltip-text">Microsoft Technologies</span>
           </div>
         </div>
         <div class="flex justify-center">
-          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all">
+          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all tooltip">
             <i class="fab fa-google text-4xl"></i>
+            <span class="tooltip-text">Google Cloud & Workspace</span>
           </div>
         </div>
         <div class="flex justify-center">
-          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all">
+          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all tooltip">
             <i class="fab fa-github text-4xl"></i>
+            <span class="tooltip-text">GitHub for Version Control</span>
           </div>
         </div>
         <div class="flex justify-center">
-          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all">
+          <div class="h-12 flex items-center text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 transition-all tooltip">
             <i class="fab fa-react text-4xl"></i>
+            <span class="tooltip-text">React for Web Development</span>
           </div>
         </div>
       </div>
@@ -202,7 +543,7 @@
   <!-- Services Section -->
   <section id="services" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-fade-in">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Services</span></h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Comprehensive digital solutions designed for Botswana's growing business needs.
@@ -210,7 +551,8 @@
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- Business Intelligence Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.1s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-chart-line text-white text-2xl"></i>
@@ -224,13 +566,14 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Dashboard & report creation</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Sales performance tracking</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Get BI Solutions <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- Web Development Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.2s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-code text-white text-2xl"></i>
@@ -244,13 +587,14 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Website design & redesign</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Portfolio & company sites</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Get a Website <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- System Development Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.3s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-cogs text-white text-2xl"></i>
@@ -264,13 +608,14 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> UML design & documentation</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Custom software solutions</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Build a System <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- Process Automation Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.4s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-robot text-white text-2xl"></i>
@@ -284,13 +629,14 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Workflow automation</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Low-code/no-code solutions</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Automate Today <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- Multimedia Design Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.5s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-paint-brush text-white text-2xl"></i>
@@ -304,13 +650,14 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Posters & banners</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Social media graphics</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Design Services <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+        <!-- IT Training Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.6s;">
           <div class="p-6">
             <div class="gradient-bg w-14 h-14 rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-graduation-cap text-white text-2xl"></i>
@@ -324,7 +671,7 @@
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> HTML & CSS basics</li>
               <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i> Digital branding</li>
             </ul>
-            <a href="contact.html" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
+            <a href="#contact" class="text-blue-600 dark:text-blue-400 font-medium inline-flex items-center">
               Express Interest <i class="fas fa-chevron-right ml-1 text-sm"></i>
             </a>
           </div>
@@ -333,104 +680,226 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex md:items-center md:space-x-12">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Flexxy Tech</span></h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Founded in 2024 by Blessing Keabetswe Rankunyana, Flexxy Tech Solutions is a Botswana-based ICT company focused on delivering affordable, high-quality technology services to businesses and students.
+ <!-- Tech-Savvy About Section -->
+<section id="about" class="py-20 bg-gray-900 text-white relative overflow-hidden">
+  <!-- Binary code animated background -->
+  <div class="binary-bg absolute inset-0 overflow-hidden opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full flex flex-wrap content-start font-mono text-green-400 text-xs leading-tight">
+      <div class="binary-line w-full animate-scroll-binary" style="animation-delay: 0s">01101000 01110100 01110100 01110000 01110011 00111010 00101111 00101111 01110111 01110111 01110111 00101110 01100110 01101100 01100101 01111000 01111000 01111001 01110100 01100101 01100011 01101000 00101110 01100011 01101111 01101101</div>
+      <div class="binary-line w-full animate-scroll-binary" style="animation-delay: 1s">01000111 01000001 01000010 01001111 01010010 01001111 01001110 01000101 00100000 01000010 01001111 01010100 01010011 01010111 01000001 01001110 01000001 00100000 01010100 01000101 01000011 01001000 00100000 01000011 01001111 01001101 01010000 01000001 01001110 01011001</div>
+      <div class="binary-line w-full animate-scroll-binary" style="animation-delay: 2s">01000010 01001100 01000101 01010011 01010011 01001001 01001110 01000111 00100000 01001011 01000101 01000001 01000010 01000101 01010100 01010011 01010111 01000101 00100000 01010010 01000001 01001110 01001011 01010101 01001110 01011001 01000001 01001110 01000001</div>
+    </div>
+  </div>
+
+  <!-- Grid overlay -->
+  <div class="grid-overlay absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05]"></div>
+
+  <!-- Floating tech elements -->
+  <div class="tech-orb orb-1 w-32 h-32 bg-blue-500/20 rounded-full blur-xl absolute top-1/4 left-1/4 animate-float-tech" style="animation-delay: 0s"></div>
+  <div class="tech-orb orb-2 w-40 h-40 bg-purple-500/20 rounded-full blur-xl absolute top-1/3 right-1/4 animate-float-tech" style="animation-delay: 2s"></div>
+  <div class="tech-orb orb-3 w-36 h-36 bg-emerald-500/20 rounded-full blur-xl absolute bottom-1/4 right-1/3 animate-float-tech" style="animation-delay: 4s"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 animate-fade-in">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+        <span class="typing-animation">About Flexxy Tech</span>
+        <span class="cursor-blink">|</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto mb-6"></div>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        Pioneering digital transformation in Botswana through innovative technology solutions
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Left Column -->
+      <div class="animate-fade-in">
+        <div class="h-full border border-gray-800 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800/50 p-8 backdrop-blur-sm">
+          <div class="flex items-center mb-6">
+            <div class="w-3 h-3 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+            <h3 class="text-xl font-mono font-bold text-green-400">WHO_WE_ARE</h3>
+          </div>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Founded in 2024 by <span class="text-blue-400">Blessing Keabetswe Rankunyana</span>, Flexxy Tech Solutions is a Botswana-based ICT company revolutionizing digital services for businesses and students.
           </p>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-            We combine technical expertise with business knowledge to create solutions that are practical, effective, and tailored to our clients' specific needs.
+          <p class="text-gray-300 leading-relaxed">
+            We merge cutting-edge technical expertise with business acumen to deliver tailored, practical solutions that drive real impact.
           </p>
           
-          <div class="space-y-4">
-            <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow">
-              <h3 class="font-bold text-lg mb-2 dark:text-white">Our Vision</h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                To be the leading technology partner in Botswana and beyond, known for empowering businesses through smart, accessible, and innovative digital solutions.
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50">
+              <div class="text-blue-400 mb-2">
+                <i class="fas fa-bullseye text-lg"></i>
+              </div>
+              <h4 class="font-bold text-white mb-2">Vision</h4>
+              <p class="text-sm text-gray-400">
+                Lead Botswana's digital revolution through accessible, innovative technology solutions.
               </p>
             </div>
-            
-            <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow">
-              <h3 class="font-bold text-lg mb-2 dark:text-white">Our Mission</h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                To deliver cost-effective and high-quality tech services tailored to client needs while contributing to the digital growth of businesses, students, and startups.
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50">
+              <div class="text-purple-400 mb-2">
+                <i class="fas fa-rocket text-lg"></i>
+              </div>
+              <h4 class="font-bold text-white mb-2">Mission</h4>
+              <p class="text-sm text-gray-400">
+                Deliver premium yet affordable tech services that empower businesses and students.
               </p>
             </div>
           </div>
         </div>
-        <div class="md:w-1/2">
-          <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-xl">
-            <h3 class="text-xl font-bold mb-4 dark:text-white">Our Core Values</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-lightbulb text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Innovation</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Creative solutions for modern challenges</p>
-                </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="animate-fade-in" style="transition-delay: 0.2s;">
+        <div class="h-full border border-gray-800 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800/50 p-8 backdrop-blur-sm">
+          <div class="flex items-center mb-6">
+            <div class="w-3 h-3 rounded-full bg-blue-500 mr-2 animate-pulse"></div>
+            <h3 class="text-xl font-mono font-bold text-blue-400">CORE_VALUES</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-emerald-400 mb-2">
+                <i class="fas fa-lightbulb text-lg"></i>
               </div>
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-handshake text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Integrity</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Honest and ethical business practices</p>
-                </div>
+              <h4 class="font-bold text-white mb-2">Innovation</h4>
+              <p class="text-sm text-gray-400">
+                Creative solutions for modern digital challenges
+              </p>
+            </div>
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-yellow-400 mb-2">
+                <i class="fas fa-shield-alt text-lg"></i>
               </div>
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-star text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Excellence</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Quality in everything we deliver</p>
-                </div>
+              <h4 class="font-bold text-white mb-2">Integrity</h4>
+              <p class="text-sm text-gray-400">
+                Ethical, transparent business practices
+              </p>
+            </div>
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-red-400 mb-2">
+                <i class="fas fa-star text-lg"></i>
               </div>
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-users text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Teamwork</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Collaborating for better results</p>
-                </div>
+              <h4 class="font-bold text-white mb-2">Excellence</h4>
+              <p class="text-sm text-gray-400">
+                Premium quality in every deliverable
+              </p>
+            </div>
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-purple-400 mb-2">
+                <i class="fas fa-users text-lg"></i>
               </div>
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-user-tie text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Client-Centered</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Your needs are our priority</p>
-                </div>
+              <h4 class="font-bold text-white mb-2">Collaboration</h4>
+              <p class="text-sm text-gray-400">
+                Teamwork for superior results
+              </p>
+            </div>
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-cyan-400 mb-2">
+                <i class="fas fa-user-tie text-lg"></i>
               </div>
-              <div class="flex items-start">
-                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <i class="fas fa-book text-white"></i>
-                </div>
-                <div class="ml-3">
-                  <h4 class="font-bold dark:text-white">Growth</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Continuous learning and improvement</p>
-                </div>
+              <h4 class="font-bold text-white mb-2">Client-First</h4>
+              <p class="text-sm text-gray-400">
+                Your needs drive our solutions
+              </p>
+            </div>
+            <div class="p-4 border border-gray-800 rounded-lg bg-gray-900/50 hover:border-blue-500/30 transition-all duration-300">
+              <div class="text-pink-400 mb-2">
+                <i class="fas fa-seedling text-lg"></i>
               </div>
+              <h4 class="font-bold text-white mb-2">Growth</h4>
+              <p class="text-sm text-gray-400">
+                Continuous learning and improvement
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  /* Binary background animation */
+  .binary-bg {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(9,11,16,0.9));
+  }
+  
+  .binary-line {
+    animation: scroll-binary 20s linear infinite;
+  }
+  
+  @keyframes scroll-binary {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  
+  /* Tech orb animation */
+  @keyframes float-tech {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(5deg); }
+    50% { transform: translate(-10px, 10px) rotate(-5deg); }
+    75% { transform: translate(15px, 5px) rotate(3deg); }
+  }
+  
+  .animate-float-tech {
+    animation: float-tech 15s ease-in-out infinite;
+  }
+  
+  /* Typing animation */
+  .typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid;
+    animation: typing 3s steps(30, end);
+  }
+  
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink {
+    from, to { opacity: 1 }
+    50% { opacity: 0 }
+  }
+  
+  /* Grid overlay */
+  .bg-grid-slate-900\/\[0\.04\] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+  
+  .dark .bg-grid-slate-400\/\[0\.05\] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+</style>
+
+<script>
+  // Re-trigger typing animation on section view
+  const aboutSection = document.getElementById('about');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const typingElement = document.querySelector('.typing-animation');
+        typingElement.style.animation = 'none';
+        void typingElement.offsetWidth; // Trigger reflow
+        typingElement.style.animation = 'typing 3s steps(30, end)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(aboutSection);
+</script>
 
   <!-- Projects Section -->
   <section id="projects" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-fade-in">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Projects</span></h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Some of the solutions we've delivered for our clients in Botswana.
@@ -438,8 +907,11 @@
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Flawless Finish Beauty Bar" class="w-full h-48 object-cover">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Flawless Finish Beauty Bar"
+                class="w-full h-48 object-cover"
+               loading="lazy">
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2 dark:text-white">Flawless Finish Beauty Bar</h3>
             <p class="text-gray-600 dark:text-gray-400 mb-4">
@@ -452,8 +924,11 @@
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Moono Wa Baithuti" class="w-full h-48 object-cover">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                alt="Moono Wa Baithuti"
+                class="w-full h-48 object-cover"
+               loading="lazy">
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2 dark:text-white">Moono Wa Baithuti</h3>
             <p class="text-gray-600 dark:text-gray-400 mb-4">
@@ -466,8 +941,11 @@
           </div>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Neo Health Centre" class="w-full h-48 object-cover">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover animate-fade-in" style="transition-delay: 0.3s;">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Neo Health Centre"
+                class="w-full h-48 object-cover"
+               loading="lazy">
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2 dark:text-white">Neo Health & Wellness</h3>
             <p class="text-gray-600 dark:text-gray-400 mb-4">
@@ -481,8 +959,8 @@
         </div>
       </div>
       
-      <div class="mt-12 text-center">
-        <a href="contact.html" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center">
+      <div class="mt-12 text-center animate-fade-in" style="transition-delay: 0.4s;">
+        <a href="#contact" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center glow-hover">
           Start Your Project <i class="fas fa-arrow-right ml-2"></i>
         </a>
       </div>
@@ -492,7 +970,7 @@
   <!-- Technologies Section -->
   <section class="py-20 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-fade-in">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Technologies <span class="gradient-text">We Use</span></h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           The tools and platforms we work with to deliver quality solutions.
@@ -500,7 +978,7 @@
       </div>
       
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center animate-fade-in" style="transition-delay: 0.1s;">
           <div class="text-4xl mb-4 text-blue-600 dark:text-blue-400">
             <i class="fab fa-html5"></i>
           </div>
@@ -510,7 +988,7 @@
           </p>
         </div>
         
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center animate-fade-in" style="transition-delay: 0.2s;">
           <div class="text-4xl mb-4 text-blue-600 dark:text-blue-400">
             <i class="fas fa-chart-bar"></i>
           </div>
@@ -520,7 +998,7 @@
           </p>
         </div>
         
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center animate-fade-in" style="transition-delay: 0.3s;">
           <div class="text-4xl mb-4 text-blue-600 dark:text-blue-400">
             <i class="fas fa-paint-brush"></i>
           </div>
@@ -530,7 +1008,7 @@
           </p>
         </div>
         
-        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow text-center animate-fade-in" style="transition-delay: 0.4s;">
           <div class="text-4xl mb-4 text-blue-600 dark:text-blue-400">
             <i class="fas fa-tasks"></i>
           </div>
@@ -543,137 +1021,243 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 gradient-bg text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Digital Transformation?</h2>
-      <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-        Let's discuss how we can help your business or organization leverage technology for growth.
-      </p>
-      <a href="#contact" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-gray-100">
-        Get in Touch <i class="fas fa-paper-plane ml-2"></i>
-      </a>
-    </div>
-  </section>
-  <!-- Updated Contact Section -->
-  <section id="contact" class="py-20">
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex md:items-center md:space-x-12">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact <span class="gradient-text">Us</span></h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-            Have a project in mind or want to learn more about our services? Reach out to our team in Gaborone.
-          </p>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
-                <i class="fas fa-map-marker-alt text-white"></i>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-medium dark:text-white">Our Address</h3>
-                <p class="text-gray-600 dark:text-gray-400">Block 6, Gaborone, Botswana</p>
-              </div>
+      <div class="text-center mb-16 animate-fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Client <span class="gradient-text">Testimonials</span></h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          What our clients say about working with Flexxy Tech Solutions.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md animate-fade-in" style="transition-delay: 0.1s;">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+              <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
             </div>
-            
-            <div class="flex items-start">
-              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
-                <i class="fas fa-envelope text-white"></i>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-medium dark:text-white">Email Us</h3>
-                <p class="text-gray-600 dark:text-gray-400">flexxytechsolutions@gmail.com</p>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">(info@flexxytech.co.bw also available)</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
-                <i class="fas fa-phone-alt text-white"></i>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-medium dark:text-white">Call Us</h3>
-                <p class="text-gray-600 dark:text-gray-400">+267 76369503</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="flex-shrink-0 gradient-bg p-3 rounded-lg">
-                <i class="fab fa-whatsapp text-white"></i>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-medium dark:text-white">WhatsApp</h3>
-                <p class="text-gray-600 dark:text-gray-400">+267 76369503</p>
-              </div>
+            <div class="ml-4">
+              <h4 class="font-bold dark:text-white">Tshepo M.</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Beauty Salon Owner</p>
             </div>
           </div>
-          
-          <div class="mt-8">
-            <h3 class="text-lg font-medium dark:text-white mb-4">Follow Us</h3>
-            <div class="flex space-x-4">
-              <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <i class="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <i class="fab fa-linkedin-in text-xl"></i>
-              </a>
-            </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">
+            "Flexxy Tech transformed my small beauty salon with a professional website that now handles all my bookings. My business has grown by 40% since we launched!"
+          </p>
+          <div class="mt-4 flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
           </div>
         </div>
         
-        <div class="md:w-1/2">
-          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold mb-6 dark:text-white">Send Us a Message</h3>
-            <form id="contact-form" class="space-y-6">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white">
-              </div>
-              
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white">
-              </div>
-              
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white">
-              </div>
-              
-              <div>
-                <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Interest</label>
-                <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white">
-                  <option value="">Select a service</option>
-                  <option value="business-intelligence">Business Intelligence</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="system-development">System Development</option>
-                  <option value="process-automation">Process Automation</option>
-                  <option value="multimedia-design">Multimedia Design</option>
-                  <option value="it-training">IT Training</option>
-                </select>
-              </div>
-              
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-900 dark:text-white"></textarea>
-              </div>
-              
-              <div>
-                <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg w-full">
-                  Send Message <i class="fas fa-paper-plane ml-2"></i>
-                </button>
-              </div>
-            </form>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md animate-fade-in" style="transition-delay: 0.2s;">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+              <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <div class="ml-4">
+              <h4 class="font-bold dark:text-white">Kabo L.</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Student Leader</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">
+            "The campaign website Flexxy Tech built for our student movement was exactly what we needed. They understood our vision and delivered beyond expectations."
+          </p>
+          <div class="mt-4 flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md animate-fade-in" style="transition-delay: 0.3s;">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+              <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <div class="ml-4">
+              <h4 class="font-bold dark:text-white">Dr. Neo K.</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Healthcare Provider</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 italic">
+            "The patient management system has streamlined our operations significantly. Flexxy Tech provided excellent support throughout the implementation process."
+          </p>
+          <div class="mt-4 flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star-half-alt text-yellow-400"></i>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Updated Footer -->
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 animate-fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Ready to start your digital transformation? Contact us today.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="animate-fade-in">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+              </div>
+            </div>
+            
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+              <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Needed</label>
+              <select id="service" name="service" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+                <option value="">Select a service</option>
+                <option value="business-intelligence">Business Intelligence</option>
+                <option value="web-development">Web Development</option>
+                <option value="system-development">System Development</option>
+                <option value="process-automation">Process Automation</option>
+                <option value="multimedia-design">Multimedia Design</option>
+                <option value="it-training">IT Training</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
+            </div>
+            
+            <div class="flex items-center">
+              <input type="checkbox" id="consent" name="consent" required class="custom-checkbox mr-2">
+              <label for="consent" class="text-sm text-gray-600 dark:text-gray-400">I consent to Flexxy Tech Solutions collecting my data for contact purposes.</label>
+            </div>
+            
+            <div>
+              <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg w-full inline-flex items-center justify-center glow-hover">
+                Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="animate-fade-in" style="transition-delay: 0.2s;">
+          <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg h-full">
+            <h3 class="text-xl font-bold mb-6 dark:text-white">Contact Information</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-white"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold dark:text-white">Our Location</h4>
+                  <p class="text-gray-600 dark:text-gray-400">Block 6, Gaborone, Botswana</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-phone-alt text-white"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold dark:text-white">Phone Number</h4>
+                  <p class="text-gray-600 dark:text-gray-400">+267 76369503</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-white"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold dark:text-white">Email Address</h4>
+                  <p class="text-gray-600 dark:text-gray-400">flexxytechsolutions@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="gradient-bg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-clock text-white"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold dark:text-white">Working Hours</h4>
+                  <p class="text-gray-600 dark:text-gray-400">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                  <p class="text-gray-600 dark:text-gray-400">Saturday: 9:00 AM - 1:00 PM</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8">
+              <h4 class="font-bold dark:text-white mb-4">Follow Us</h4>
+              <div class="flex space-x-4">
+                <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-pink-600 hover:text-white transition">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-700 hover:text-white transition">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://wa.me/26776369503" target="_blank" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-green-500 hover:text-white transition">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 gradient-bg text-white relative overflow-hidden">
+    <div class="circuit-bg"></div>
+    
+    <!-- Floating elements -->
+    <div class="floating-element w-16 h-16 bg-blue-500 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+    <div class="floating-element w-24 h-24 bg-purple-500 top-1/3 right-1/4" style="animation-delay: 2s;"></div>
+    <div class="floating-element w-20 h-20 bg-indigo-500 bottom-1/4 right-1/3" style="animation-delay: 4s;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Digital Transformation?</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+        Let's discuss how we can help your business or organization leverage technology for growth.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#contact" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-gray-100 glow-hover">
+          Get in Touch <i class="fas fa-paper-plane ml-2"></i>
+        </a>
+        <a href="#services" class="text-white border border-white font-semibold py-3 px-8 rounded-lg inline-flex items-center justify-center transition-all hover:bg-white/10 glow-hover">
+          Our Services <i class="fas fa-book-open ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -688,23 +1272,54 @@
             Email: flexxytechsolutions@gmail.com
           </p>
           <div class="flex space-x-4">
-            <a href="https://www.facebook.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://wa.me/26776369503" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+            <a href="https://wa.me/26776369503" target="_blank" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-whatsapp"></i>
             </a>
           </div>
         </div>
         
-        <!-- Other footer columns remain the same -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="#services" class="hover:text-white transition">Business Intelligence</a></li>
+            <li><a href="#services" class="hover:text-white transition">Web Development</a></li>
+            <li><a href="#services" class="hover:text-white transition">System Development</a></li>
+            <li><a href="#services" class="hover:text-white transition">Process Automation</a></li>
+            <li><a href="#services" class="hover:text-white transition">Multimedia Design</a></li>
+          </ul>
+        </div>
         
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#projects" class="hover:text-white transition">Our Projects</a></li>
+            <li><a href="#services" class="hover:text-white transition">Services</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">Newsletter</h3>
+          <p class="text-sm mb-4">
+            Subscribe to our newsletter for the latest updates and tech insights.
+          </p>
+          <form class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full">
+            <button type="submit" class="gradient-bg text-white px-4 py-2 rounded-r-lg hover:opacity-90 transition">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
       </div>
       
       <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
@@ -712,11 +1327,9 @@
           &copy; 2024 Flexxy Tech Solutions. All rights reserved.
         </p>
         <div class="mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="text-sm hover:text-white transition">Privacy Policy</a>
           <span class="mx-2">•</span>
-          <a href="#" class="text-sm hover:text-white transition-colors">Terms of Service</a>
-          <span class="mx-2">•</span>
-          <a href="www.flexxytechsolutions.com" class="text-sm hover:text-white transition-colors">Website</a>
+          <a href="#" class="text-sm hover:text-white transition">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -727,11 +1340,6 @@
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
     
-    if (themeToggle && mobileThemeToggle) {
-      themeToggle.addEventListener('click', toggleTheme);
-      mobileThemeToggle.addEventListener('click', toggleTheme);
-    }
-    
     function toggleTheme() {
       if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.remove('dark');
@@ -740,6 +1348,11 @@
         document.documentElement.classList.add('dark');
         localStorage.setItem('color-theme', 'dark');
       }
+    }
+    
+    if (themeToggle && mobileThemeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+      mobileThemeToggle.addEventListener('click', toggleTheme);
     }
     
     // Mobile menu toggle
@@ -802,6 +1415,27 @@
     } else {
       document.documentElement.classList.remove('dark');
     }
+    
+    // Animate elements on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-fade-in');
+      const windowHeight = window.innerHeight;
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementPosition < windowHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    // Run on initial load
+    animateOnScroll();
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
   </script>
 </body>
 </html>
