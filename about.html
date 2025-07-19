@@ -1,163 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base target="_self">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us – Flexxy Tech Solutions</title>
   <meta name="description" content="Learn about Flexxy Tech Solutions - Botswana's leading ICT services provider specializing in web development, business intelligence, and system automation">
-  <meta property="og:title" content="About Flexxy Tech Solutions | ICT Services in Botswana">
-  <meta property="og:description" content="Discover our story, mission, and values as Botswana's premier technology solutions provider">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.flexxytechsolutions.com/about.html">
-  
-  <!-- Preconnect to CDNs -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af',
+            accent: '#3b82f6',
+            dark: '#1e293b',
+            light: '#f8fafc',
+            neutral: '#64748b',
+            success: '#10b981',
+            'botswana-blue': '#75AADB',
+            'botswana-black': '#000000',
+            'botswana-white': '#FFFFFF',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2563eb;
-      --secondary: #1e40af;
-      --accent: #3b82f6;
-      --dark: #1e293b;
-      --light: #f8fafc;
-      --neutral: #64748b;
-      --success: #10b981;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      transition: all 0.3s ease;
-    }
-    
-    .dark body {
-      background-color: #0f172a;
-      color: #f8fafc;
-    }
-    
-    .gradient-text {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-    
-    .hero-gradient {
-      background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 1) 0%, 
-        rgba(30, 64, 175, 1) 100%);
-    }
-    
-    .hero-pattern {
-      background-image: 
-        radial-gradient(circle at 25% 30%, rgba(255,255,255,0.1) 0%, transparent 25%),
-        radial-gradient(circle at 75% 70%, rgba(255,255,255,0.1) 0%, transparent 25%);
-      background-size: 400% 400%;
-      animation: gradient-move 15s ease infinite;
-    }
-    
-    @keyframes gradient-move {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
-    
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    
-    .transition-all {
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      transition: all 0.3s ease;
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-    
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
       100% { transform: translateY(0px); }
     }
-    
-    /* About page specific styles */
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #2563eb, #1e40af);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .gradient-bg {
+      background: linear-gradient(90deg, #2563eb, #1e40af);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+    }
+    .circuit-bg {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff"><path d="M30,10 L40,10 L40,20 L30,20 Z M60,10 L70,10 L70,20 L60,20 Z M10,30 L20,30 L20,40 L10,40 Z M80,30 L90,30 L90,40 L80,40 Z M30,60 L40,60 L40,70 L30,70 Z M60,60 L70,60 L70,70 L60,70 Z M10,80 L20,80 L20,90 L10,90 Z M80,80 L90,80 L90,90 L80,90 Z M45,45 L55,45 L55,55 L45,55 Z"/></svg>');
+      background-size: 60px 60px;
+      opacity: 0.2;
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
     .glow-hover:hover {
-      box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
     }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    
-    @keyframes slideUp {
-      0% { transform: translateY(20px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-    
     .animate-fade-in {
-      animation: fadeIn 1s ease-in-out;
+      opacity: 0;
     }
-    
-    .animate-slide-up {
-      animation: slideUp 0.8s ease-out;
-    }
-    
-    .animation-delay-200 {
-      animation-delay: 200ms;
-    }
-    
-    .animation-delay-400 {
-      animation-delay: 400ms;
+    .hero-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 30%, rgba(255,255,255,0.1) 0%, transparent 25%),
+        radial-gradient(circle at 75% 70%, rgba(255,255,255,0.1) 0%, transparent 25%);
+      background-size: 400% 400%;
     }
   </style>
 </head>
-<body class="dark:bg-gray-900 dark:text-gray-100">
+<body class="font-inter bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
   <!-- Navigation -->
   <nav class="bg-white dark:bg-gray-900 shadow-sm fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex items-center">
-          <a href="index.html" class="flex items-center" id="logo-link">
+          <a href="index.html" class="flex items-center">
             <div class="flex-shrink-0 flex items-center">
               <i class="fas fa-cube text-2xl gradient-text"></i>
               <span class="ml-2 text-xl font-bold dark:text-white">Flexxy Tech</span>
@@ -165,24 +100,24 @@
           </a>
         </div>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-          <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">About</a>
-          <a href="services.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
-          <a href="projects.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-          <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-          <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full focus:outline-none">
+          <a href="index.html" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+          <a href="about.html" class="nav-link px-3 py-2 rounded-md text-base font-medium text-blue-600 dark:text-blue-400">About</a>
+          <a href="services.html" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+          <a href="projects.html" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+          <a href="contact.html" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+          <button id="theme-toggle" class="p-2 rounded-full focus:outline-none">
             <i class="fas fa-moon dark:hidden"></i>
             <i class="fas fa-sun hidden dark:inline"></i>
           </button>
         </div>
         <div class="-mr-2 flex items-center md:hidden">
-          <button id="mobile-menu-button" aria-label="Toggle mobile menu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
     </div>
-    
+
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -201,13 +136,23 @@
 
   <!-- Hero Section -->
   <header class="relative hero-gradient hero-pattern text-white overflow-hidden pt-24">
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-800/20"></div>
+    <div class="circuit-bg absolute inset-0"></div>
+    
+    <!-- Floating elements -->
+    <div class="absolute w-16 h-16 rounded-full bg-blue-500 opacity-20 blur-xl top-1/4 left-1/4" id="float-1"></div>
+    <div class="absolute w-24 h-24 rounded-full bg-purple-500 opacity-20 blur-xl top-1/3 right-1/4" id="float-2"></div>
+    <div class="absolute w-20 h-20 rounded-full bg-indigo-500 opacity-20 blur-xl bottom-1/4 right-1/3" id="float-3"></div>
+
     <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center relative z-10">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">About <span class="gradient-text">Flexxy Tech</span> Solutions</h1>
-      <p class="text-xl md:text-2xl opacity-90 mb-8 animate-fade-in animation-delay-200">Driven by design. Focused on the future.</p>
-      <a href="#main-content" class="inline-flex items-center px-6 py-3 bg-white text-primary rounded-full font-medium hover:bg-gray-100 transition animate-fade-in animation-delay-400">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        About <span class="gradient-text">Flexxy Tech</span> Solutions
+      </h1>
+      <p class="text-xl md:text-2xl opacity-90 mb-8">
+        Driven by design. Focused on the future.
+      </p>
+      <a href="#main-content" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-full font-medium hover:bg-gray-100 transition">
         Learn More
-        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
       </a>
@@ -215,124 +160,139 @@
   </header>
 
   <!-- Main Content -->
-  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-slide-up">
-    <div class="mb-20">
-      <span class="text-sm font-semibold text-accent tracking-wider">OUR STORY</span>
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Our Story Section -->
+    <section class="mb-20 animate-fade-in">
+      <span class="text-sm font-semibold text-blue-400 tracking-wider">OUR STORY</span>
       <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Who We Are</h2>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <p class="text-lg leading-relaxed mb-4">
-            Flexxy Tech Solutions is a Botswana-based ICT company committed to delivering affordable, high-quality technology services to businesses and students. Founded by <strong class="text-primary">Blessing Keabetswe Rankunyana</strong>, we began as a small team with one simple belief — every business, no matter how small, deserves exceptional digital solutions.
+            Flexxy Tech Solutions is a Botswana-based ICT company committed to delivering affordable, high-quality technology services to businesses and students. Founded by <strong class="text-blue-600 dark:text-blue-400">Blessing Keabetswe Rankunyana</strong>, we began as a small team with one simple belief — every business, no matter how small, deserves exceptional digital solutions.
           </p>
           <p class="text-lg leading-relaxed">
             From our humble beginnings to now serving clients across Botswana, we've stayed true to our core values while continuously evolving with the ever-changing technology landscape.
           </p>
         </div>
         <div class="rounded-xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 glow-hover transition-transform hover:scale-[1.01]">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Our Team" class="w-full h-auto" loading="lazy">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+            alt="Our Team" 
+            class="w-full h-auto"
+            loading="lazy"
+          >
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="mb-20">
-      <div class="bg-primary/5 p-8 rounded-2xl border border-primary/10 dark:border-primary/20">
-        <span class="text-sm font-semibold text-accent tracking-wider">OUR VISION</span>
+    <!-- Mission Statement -->
+    <section class="mb-20 animate-fade-in">
+      <div class="bg-blue-50 dark:bg-blue-900/10 p-8 rounded-2xl border border-blue-100 dark:border-blue-900/20">
+        <span class="text-sm font-semibold text-blue-400 tracking-wider">OUR VISION</span>
         <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Mission Statement</h2>
         <blockquote class="text-2xl md:text-3xl font-medium italic text-gray-700 dark:text-gray-300 leading-normal">
           "To empower businesses and students with accessible, innovative technology solutions that drive growth and digital transformation in Botswana."
         </blockquote>
       </div>
-    </div>
+    </section>
 
-    <div class="mb-20">
-      <span class="text-sm font-semibold text-accent tracking-wider">WHY CHOOSE US</span>
+    <!-- What Makes Us Different -->
+    <section class="mb-20 animate-fade-in">
+      <span class="text-sm font-semibold text-blue-400 tracking-wider">WHY CHOOSE US</span>
       <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">What Makes Us Different</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-primary/20 transition">
-          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-chart-line text-primary text-xl"></i>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-blue-200 transition card-hover">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-chart-line text-blue-600 text-xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2 dark:text-white">Business Focused</h3>
           <p class="text-gray-600 dark:text-gray-400">We combine technical expertise with business knowledge to create practical, effective solutions.</p>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-primary/20 transition">
-          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-hand-holding-usd text-primary text-xl"></i>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-blue-200 transition card-hover">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-hand-holding-usd text-blue-600 text-xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2 dark:text-white">Affordable Pricing</h3>
           <p class="text-gray-600 dark:text-gray-400">Quality services at student-friendly prices to support Botswana's growing businesses.</p>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-primary/20 transition">
-          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-users text-primary text-xl"></i>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-blue-200 transition card-hover">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-users text-blue-600 text-xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2 dark:text-white">Client-Centered</h3>
           <p class="text-gray-600 dark:text-gray-400">Your needs are our priority. We listen first, then build solutions tailored to you.</p>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-primary/20 transition">
-          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-graduation-cap text-primary text-xl"></i>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-blue-200 transition card-hover">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-2 dark:text-white">Skills Development</h3>
           <p class="text-gray-600 dark:text-gray-400">Committed to building Botswana's digital skills through training and mentorship.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="mb-20">
-      <span class="text-sm font-semibold text-accent tracking-wider">OUR PRINCIPLES</span>
+    <!-- Core Values -->
+    <section class="mb-20 animate-fade-in">
+      <span class="text-sm font-semibold text-blue-400 tracking-wider">OUR PRINCIPLES</span>
       <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-8">Core Values</h2>
       
-      <div class="space-y-8">
-        <div class="grid md:grid-cols-5 gap-6 items-center">
-          <div class="md:col-span-2 gradient-bg p-8 rounded-xl text-white">
-            <h3 class="text-2xl font-bold mb-2">Innovation</h3>
-            <p class="opacity-90">Creative solutions for modern challenges</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Value 1 - Botho -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition cursor-pointer group card-hover">
+          <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4 mx-auto transition group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50">
+            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
           </div>
-          <div class="md:col-span-3 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-            <p class="text-gray-700 dark:text-gray-300">
-              We believe in the power of innovation to solve real-world problems. Our approach combines cutting-edge technology with practical applications tailored to Botswana's unique business environment.
-            </p>
-          </div>
-        </div>
-        
-        <div class="grid md:grid-cols-5 gap-6 items-center">
-          <div class="md:col-span-3 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm order-2 md:order-1">
-            <p class="text-gray-700 dark:text-gray-300">
-              Every project receives our full attention to detail. From initial consultation to final delivery, we maintain rigorous quality standards that set your digital presence apart.
-            </p>
-          </div>
-          <div class="md:col-span-2 bg-gradient-to-br from-accent to-secondary p-8 rounded-xl text-white order-1 md:order-2">
-            <h3 class="text-2xl font-bold mb-2">Excellence</h3>
-            <p class="opacity-90">Quality in everything we deliver</p>
+          <h3 class="text-xl font-semibold mb-2 text-center dark:text-white">Botho in Technology</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-center">We embody Botswana's spirit of Botho (respect) in all our digital solutions, ensuring our technology serves the community with dignity.</p>
+          <div class="mt-4 text-center">
+            <span class="inline-block px-2 py-1 text-xs font-semibold bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full">Botswana Value</span>
           </div>
         </div>
         
-        <div class="grid md:grid-cols-5 gap-6 items-center">
-          <div class="md:col-span-2 bg-gradient-to-br from-secondary to-primary p-8 rounded-xl text-white">
-            <h3 class="text-2xl font-bold mb-2">Integrity</h3>
-            <p class="opacity-90">Honest and ethical business practices</p>
+        <!-- Value 2 - Pula -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition cursor-pointer group card-hover">
+          <div class="w-16 h-16 bg-purple-50 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-4 mx-auto transition group-hover:bg-purple-100 dark:group-hover:bg-purple-900/50">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
-          <div class="md:col-span-3 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-            <p class="text-gray-700 dark:text-gray-300">
-              We build trust through transparency. Our clients receive honest advice, fair pricing, and ethical solutions that stand the test of time.
-            </p>
+          <h3 class="text-xl font-semibold mb-2 text-center dark:text-white">Pula-Driven Progress</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-center">Like Botswana's precious rains, we nurture growth through innovative solutions tailored to our local environment.</p>
+          <div class="mt-4 text-center">
+            <span class="inline-block px-2 py-1 text-xs font-semibold bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full">Innovation</span>
+          </div>
+        </div>
+        
+        <!-- Value 3 - Kgolagano -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition cursor-pointer group card-hover">
+          <div class="w-16 h-16 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4 mx-auto transition group-hover:bg-green-100 dark:group-hover:bg-green-900/50">
+            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-center dark:text-white">Kgolagano (Integrity)</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-center">We maintain the highest ethical standards, honoring Botswana's tradition of trust and accountability in business.</p>
+          <div class="mt-4 text-center">
+            <span class="inline-block px-2 py-1 text-xs font-semibold bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full">Botswana Value</span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Team Section -->
-    <div class="mb-20">
-      <span class="text-sm font-semibold text-accent tracking-wider">BEHIND THE SCENES</span>
+    <section class="mb-20 animate-fade-in">
+      <span class="text-sm font-semibold text-blue-400 tracking-wider">BEHIND THE SCENES</span>
       <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-8">Meet The Founder</h2>
       
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1">
-          <h3 class="text-2xl font-bold text-primary mb-2">Blessing Keabetswe Rankunyana</h3>
+          <h3 class="text-2xl font-bold text-blue-600 mb-2">Blessing Keabetswe Rankunyana</h3>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Founder & Lead Developer</p>
           <p class="text-gray-700 dark:text-gray-300 mb-4">
             With extensive experience in ICT solutions and business intelligence, Blessing founded Flexxy Tech Solutions with a vision to make high-quality technology services accessible to businesses of all sizes in Botswana.
@@ -341,45 +301,50 @@
             His expertise in Power BI, system development, and process automation drives the company's commitment to excellence. When not developing solutions, you can find him mentoring young tech enthusiasts or speaking at industry events.
           </p>
           <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-primary transition">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition">
               <i class="fab fa-linkedin-in text-xl"></i>
               <span class="sr-only">LinkedIn</span>
             </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-primary transition">
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition">
               <i class="fab fa-twitter text-xl"></i>
               <span class="sr-only">Twitter</span>
             </a>
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-primary transition">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition">
               <i class="fab fa-github text-xl"></i>
               <span class="sr-only">GitHub</span>
             </a>
           </div>
         </div>
-        <div class="rounded-full overflow-hidden w-64 h-64 mx-auto border-4 border-white dark:border-gray-800 shadow-xl glow-hover order-1 md:order-2">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Blessing Keabetswe Rankunyana" class="w-full h-full object-cover" loading="lazy">
+        <div class="rounded-full overflow-hidden w-64 h-64 mx-auto border-4 border-white dark:border-gray-800 shadow-xl glow-hover order-1 md:order-2 float-animation">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80" 
+            alt="Blessing Keabetswe Rankunyana" 
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- CTA Section -->
-    <div class="gradient-bg rounded-2xl p-8 md:p-12 text-center text-white">
+    <section class="gradient-bg rounded-2xl p-8 md:p-12 text-center text-white animate-fade-in">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to transform your business?</h2>
       <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">Let's discuss how we can create technology solutions that drive your success.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition">
+        <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">
           Get in Touch
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </a>
         <a href="services.html" class="inline-flex items-center justify-center px-8 py-3 text-white border border-white rounded-full font-semibold hover:bg-white/10 transition">
           Our Services
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
         </a>
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -388,7 +353,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center mb-4">
-            <i class="fas fa-cube text-2xl gradient-text" aria-hidden="true"></i>
+            <i class="fas fa-cube text-2xl gradient-text"></i>
             <span class="ml-2 text-xl font-bold text-white">Flexxy Tech</span>
           </div>
           <p class="text-sm mb-4">
@@ -397,20 +362,20 @@
             Email: flexxytechsolutions@gmail.com
           </p>
           <div class="flex space-x-4">
-            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/FlexxyTechSolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
               <span class="sr-only">Facebook</span>
             </a>
-            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
+            <a href="https://www.instagram.com/flexxytechsolutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram"></i>
               <span class="sr-only">Instagram</span>
             </a>
-            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            <a href="https://www.linkedin.com/company/flexxy-tech-solutions" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-linkedin-in"></i>
               <span class="sr-only">LinkedIn</span>
             </a>
-            <a href="https://wa.me/26776369503" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/26776369503" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-whatsapp"></i>
               <span class="sr-only">WhatsApp</span>
             </a>
           </div>
@@ -419,33 +384,33 @@
         <div>
           <h3 class="text-lg font-semibold text-white mb-4">Services</h3>
           <ul class="space-y-2">
-            <li><a href="services.html#business-intelligence" class="hover:text-white transition-colors">Business Intelligence</a></li>
-            <li><a href="services.html#web-development" class="hover:text-white transition-colors">Web Development</a></li>
-            <li><a href="services.html#system-development" class="hover:text-white transition-colors">System Development</a></li>
-            <li><a href="services.html#process-automation" class="hover:text-white transition-colors">Process Automation</a></li>
-            <li><a href="services.html#multimedia-design" class="hover:text-white transition-colors">Multimedia Design</a></li>
+            <li><a href="services.html#business-intelligence" class="hover:text-white transition">Business Intelligence</a></li>
+            <li><a href="services.html#web-development" class="hover:text-white transition">Web Development</a></li>
+            <li><a href="services.html#system-development" class="hover:text-white transition">System Development</a></li>
+            <li><a href="services.html#process-automation" class="hover:text-white transition">Process Automation</a></li>
+            <li><a href="services.html#multimedia-design" class="hover:text-white transition">Multimedia Design</a></li>
           </ul>
         </div>
         
         <div>
           <h3 class="text-lg font-semibold text-white mb-4">Company</h3>
           <ul class="space-y-2">
-            <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="projects.html" class="hover:text-white transition-colors">Our Projects</a></li>
-            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
-            <li><a href="careers.html" class="hover:text-white transition-colors">Careers</a></li>
+            <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+            <li><a href="projects.html" class="hover:text-white transition">Our Projects</a></li>
+            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+            <li><a href="careers.html" class="hover:text-white transition">Careers</a></li>
           </ul>
         </div>
         
         <div>
           <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
           <ul class="space-y-2">
-            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="case-studies.html" class="hover:text-white transition-colors">Case Studies</a></li>
-            <li><a href="whitepapers.html" class="hover:text-white transition-colors">Whitepapers</a></li>
-            <li><a href="faq.html" class="hover:text-white transition-colors">FAQs</a></li>
-            <li><a href="support.html" class="hover:text-white transition-colors">Support</a></li>
+            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+            <li><a href="case-studies.html" class="hover:text-white transition">Case Studies</a></li>
+            <li><a href="whitepapers.html" class="hover:text-white transition">Whitepapers</a></li>
+            <li><a href="faq.html" class="hover:text-white transition">FAQs</a></li>
+            <li><a href="support.html" class="hover:text-white transition">Support</a></li>
           </ul>
         </div>
       </div>
@@ -455,95 +420,58 @@
           &copy; 2024 Flexxy Tech Solutions. All rights reserved.
         </p>
         <div class="mt-4 md:mt-0">
-          <a href="privacy-policy.html" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+          <a href="privacy-policy.html" class="text-sm hover:text-white transition">Privacy Policy</a>
           <span class="mx-2">•</span>
-          <a href="terms-of-service.html" class="text-sm hover:text-white transition-colors">Terms of Service</a>
+          <a href="terms-of-service.html" class="text-sm hover:text-white transition">Terms of Service</a>
           <span class="mx-2">•</span>
-          <a href="https://www.flexxytechsolutions.com" class="text-sm hover:text-white transition-colors">Website</a>
+          <a href="https://www.flexxytechsolutions.com" class="text-sm hover:text-white transition">Website</a>
         </div>
       </div>
     </div>
-    
-    <!-- Schema.org markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Flexxy Tech Solutions",
-      "image": "https://www.flexxytechsolutions.com/images/logo.png",
-      "@id": "https://www.flexxytechsolutions.com",
-      "url": "https://www.flexxytechsolutions.com",
-      "telephone": "+26776369503",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Block 6",
-        "addressLocality": "Gaborone",
-        "addressCountry": "BW"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -24.6282,
-        "longitude": 25.9231
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "08:00",
-        "closes": "17:00"
-      },
-      "sameAs": [
-        "https://www.facebook.com/FlexxyTechSolutions",
-        "https://www.instagram.com/flexxytechsolutions",
-        "https://www.linkedin.com/company/flexxy-tech-solutions"
-      ]
-    }
-    </script>
   </footer>
 
   <script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-    
-    if (themeToggle && mobileThemeToggle) {
-      themeToggle.addEventListener('click', toggleTheme);
-      mobileThemeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    function toggleTheme() {
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-      }
-    }
-    
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    function toggleTheme() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
     }
     
+    themeToggle.addEventListener('click', toggleTheme);
+    mobileThemeToggle.addEventListener('click', toggleTheme);
+
+    // Check for saved theme preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         
         const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        if (targetId === '#') return;
         
+        const targetElement = document.querySelector(targetId);
         if (targetElement) {
           window.scrollTo({
             top: targetElement.offsetTop - 80,
@@ -557,31 +485,67 @@
         }
       });
     });
-    
-    // Initialize dark mode based on preference
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+
+    // Animate floating elements
+    function animateFloatingElements() {
+      const float1 = document.getElementById('float-1');
+      const float2 = document.getElementById('float-2');
+      const float3 = document.getElementById('float-3');
+      
+      let pos1 = { y: 0, x: 0 };
+      let pos2 = { y: 0, x: 0 };
+      let pos3 = { y: 0, x: 0 };
+      
+      function updatePositions() {
+        pos1.y += (Math.random() - 0.5) * 2;
+        pos1.x += (Math.random() - 0.5) * 2;
+        pos2.y += (Math.random() - 0.5) * 2;
+        pos2.x += (Math.random() - 0.5) * 2;
+        pos3.y += (Math.random() - 0.5) * 2;
+        pos3.x += (Math.random() - 0.5) * 2;
+        
+        // Apply limits
+        pos1.y = Math.max(-20, Math.min(20, pos1.y));
+        pos1.x = Math.max(-20, Math.min(20, pos1.x));
+        pos2.y = Math.max(-30, Math.min(30, pos2.y));
+        pos2.x = Math.max(-30, Math.min(30, pos2.x));
+        pos3.y = Math.max(-25, Math.min(25, pos3.y));
+        pos3.x = Math.max(-25, Math.min(25, pos3.x));
+        
+        float1.style.transform = `translate(${pos1.x}px, ${pos1.y}px)`;
+        float2.style.transform = `translate(${pos2.x}px, ${pos2.y}px)`;
+        float3.style.transform = `translate(${pos3.x}px, ${pos3.y}px)`;
+        
+        requestAnimationFrame(updatePositions);
+      }
+      
+      updatePositions();
     }
-    
-    // Intersection Observer for animations
-    document.addEventListener('DOMContentLoaded', function() {
+
+    // Animate elements when they come into view
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-fade-in');
+      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.1
-      });
+      }, { threshold: 0.1 });
       
-      document.querySelectorAll('section, .animate-on-scroll').forEach(element => {
+      elements.forEach(element => {
         observer.observe(element);
       });
+    }
+
+    // Initialize animations when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      animateFloatingElements();
+      animateOnScroll();
     });
   </script>
 </body>
-        </html>
+</html>
